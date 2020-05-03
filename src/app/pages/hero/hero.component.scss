@@ -1,0 +1,18 @@
+// @import 'src/styles.scss';
+
+.hero::before {
+  content: '';
+  width: 40%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(46, 51, 73, 0.75);
+}
+
+@media (max-width: 991.98px) {
+  .hero::before {
+    background: rgba(46, 51, 73, 0.5);
+    width: 100%;
+  }
+}

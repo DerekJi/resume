@@ -1,0 +1,46 @@
+
+.contact-item {
+  background: #fff;
+  position: relative;
+  transition: all 0.4s;
+}
+
+.contact-item::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  background: none;
+  border: 2px solid #fff;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.contact-item i {
+  color: #fbd214;
+  transition: all 0.3s;
+}
+
+.contact-item:hover {
+  background: #fbd214;
+  color: #fff;
+}
+
+.contact-item:hover i, .contact-item:hover .contact-item-title, .contact-item:hover p {
+  color: #fff;
+}
+
+.contact-item:hover::before {
+  -webkit-transform: none;
+  transform: none;
+  opacity: 1;
+}
+
+a.contact-item .contact-item-title, a.contact-item p {
+  transition: all 0.3s;
+}

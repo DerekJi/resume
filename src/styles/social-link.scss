@@ -1,0 +1,22 @@
+.social-link {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #aaa;
+  transition: all 0.3s;
+  font-size: 0.8rem;
+}
+
+.social-link:hover, .social-link:focus {
+  background: #fbd214;
+  color: #fff;
+  text-decoration: none;
+  border-color: #fbd214;
+}
