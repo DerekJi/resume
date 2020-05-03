@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrollService } from '@core/scroll-spy.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private scroll: ScrollService,
+  ) {
   }
 
+  public navActive: string;
+
+  public navItems = [
+    { section: 'hero', displayName: 'Home' },
+    { section: 'about', displayName: 'About' },
+    { section: 'expertise', displayName: 'Expertise' },
+    { section: 'education', displayName: 'Education' },
+    { section: 'experience', displayName: 'Experience' },
+    { section: 'contact', displayName: 'Contact' },
+  ];
+
+  ngOnInit(): void {
+    window.addEventListener('scroll', this.onScroll, true);
+  }
+
+  onScroll = (event): void => {
+    const scrollTop = event.srcElement.scrollingElement.scrollTop;
+    this.navActive = scrollTop > 5 ? 'active' : '';
+
+    this.scroll.spy(event, '#d-scroll-spy');
+  }
+
+  scrollTo(section: string) {
+    this.scroll.scrollTo(section);
+  }
+
+  isCurrentSection(section: string) {
+    return this.scroll.currentSection === section;
+  }
 }

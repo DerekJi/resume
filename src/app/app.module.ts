@@ -15,6 +15,7 @@ import { ContactModule } from '@pages/contact/contact.module';
 
 const AppModules = [
   CoreModule,
+
   HeaderModule,
   HeroModule,
   AboutModule,

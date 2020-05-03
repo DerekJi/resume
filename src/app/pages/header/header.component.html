@@ -1,19 +1,18 @@
 <header class="header">
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg fixed-top {{navActive}}">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <span class="sp-logo-name">DJ</span>
-        <i class="fa fa-circle i-logo-dot">&nbsp;</i>
+        <img src="assets/images/DJ.PNG" width="32">
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link link-scroll active" href="#hero">Home <span class="sr-only">(current)</span></a></li>
-          <li class="nav-item"><a class="nav-link link-scroll" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link link-scroll" href="#expertise">Expertise</a></li>
-          <li class="nav-item"><a class="nav-link link-scroll" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link link-scroll" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link link-scroll" href="#contact">Contact</a></li>
+          <li class="nav-item" *ngFor="let item of navItems">
+            <a class="nav-link link-scroll" href="#{{item.section}}"
+              (click)="scrollTo(item.section)" [ngClass]="{ 'active': isCurrentSection(item.section) }"
+            >
+              {{item.displayName}} <span class="sr-only">(current)</span>
+            </a>
         </ul>
       </div>
     </div>
