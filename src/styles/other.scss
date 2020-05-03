@@ -1,0 +1,202 @@
+/*
+     Other
+    ------------------------
+*/
+.overflow-visible {
+  overflow: visible !important;
+}
+
+.shadow-0 {
+  box-shadow: none !important;
+}
+
+.text-small {
+  font-size: 0.9rem !important;
+}
+
+.text-lg {
+  font-size: 3.5rem !important;
+}
+
+@media (min-width: 992px) {
+  .text-xl {
+    font-size: 5rem !important;
+  }
+}
+
+.text-gray {
+  color: #b4b4b4 !important;
+}
+
+.text-muted {
+  color: #757f88 !important;
+}
+
+.border-gray {
+  border-color: #eee !important;
+}
+
+.index-forward {
+  z-index: 99;
+  position: relative;
+}
+
+.bg-cover {
+  background-size: cover !important;
+}
+
+.bg-center {
+  background-position: center center !important;
+}
+
+.bg-top {
+  background-position: top center !important;
+}
+
+.bg-bottom {
+  background-position: bottom center !important;
+}
+
+.line-height-sm {
+  line-height: 1.3 !important;
+}
+
+.dotted-separator {
+  border-top: 2px dotted rgba(0, 0, 0, 0.2);
+}
+
+.font-weight-light {
+  font-weight: 300 !important;
+}
+
+.font-weight-normal {
+  font-weight: 400 !important;
+}
+
+.font-weight-bold {
+  font-weight: 800 !important;
+}
+
+.accordion .card {
+  border: none;
+}
+
+.accordion .card-header {
+  background: #fff;
+  border: none;
+}
+
+.accordion .card .btn-link {
+  width: 100%;
+  text-decoration: none;
+  color: #333;
+  text-align: left;
+}
+
+.accordion .card .btn-link:focus {
+  box-shadow: none;
+}
+
+.section-padding {
+  padding: 6.5rem 0;
+}
+
+
+
+strong {
+  font-weight: bold;
+}
+
+.border-md {
+  border-width: 2px !important;
+}
+
+.border-lg {
+  border-width: 4px !important;
+}
+
+.lined {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.7rem;
+}
+
+.lined::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 5rem;
+  height: 3px;
+  background: #fbd214;
+}
+
+.lined::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 3rem;
+  height: 2px;
+  background: #fbd214;
+}
+
+.lined-center::before {
+  left: calc(50% - 1.65rem);
+}
+
+.lined-center::after {
+  left: calc(50% + 1.65rem);
+}
+
+input.text-white::-webkit-input-placeholder {
+  color: #fff;
+}
+
+input.text-white::-moz-placeholder {
+  color: #fff;
+}
+
+input.text-white:-ms-input-placeholder {
+  color: #fff;
+}
+
+input.text-white::-ms-input-placeholder {
+  color: #fff;
+}
+
+input.text-white::placeholder {
+  color: #fff;
+}
+
+.bg-none {
+  background: none !important;
+}
+
+.text-shadow {
+  text-transform: 1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.bg-cover {
+  background-size: cover !important;
+}
+
+.bg-center {
+  background-position: center center !important;
+}
+
+.index-forward {
+  z-index: 999 !important;
+}
+
+.reset-anchor {
+  color: inherit;
+  text-decoration: none;
+}
+
+.reset-anchor:hover, .reset-anchor:focus {
+  color: inherit;
+  text-decoration: none;
+}

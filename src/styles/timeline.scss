@@ -1,0 +1,52 @@
+
+/* Timeline holder */
+ul.timeline {
+  list-style-type: none;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+/* Timeline vertical line */
+ul.timeline:before {
+  content: ' ';
+  background: #EDEDED;
+  display: inline-block;
+  position: absolute;
+  left: 16px;
+  width: 4px;
+  height: 100%;
+  z-index: 400;
+  border-radius: 1rem;
+}
+
+ul.timeline:after {
+  content: ' ';
+  background: #fbd214;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 9px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  z-index: 400;
+}
+
+li.timeline-item {
+  margin: 20px 0;
+}
+
+/* Timeline item circle marker */
+li.timeline-item::before {
+  content: ' ';
+  background: #fbd214;
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  z-index: 400;
+}
