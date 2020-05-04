@@ -2,7 +2,7 @@ name: DevOps
 on:
   push:
     branches:
-      - develop
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
