@@ -31,8 +31,6 @@ export class HeaderComponent implements OnInit {
   onScroll = (event): void => {
     const scrollTop = event.srcElement.scrollingElement.scrollTop;
     this.navActive = scrollTop > 5 ? 'active' : '';
-
-    this.scroll.spy(event, '#d-scroll-spy');
   }
 
   scrollTo(section: string) {
