@@ -1,3 +1,4 @@
+@import '_variables.scss';
 
 .contact-item {
   background: #fff;
@@ -22,12 +23,12 @@
 }
 
 .contact-item i {
-  color: #fbd214;
+  color: $primary-color;
   transition: all 0.3s;
 }
 
 .contact-item:hover {
-  background: #fbd214;
+  background: $primary-color;
   color: #fff;
 }
 

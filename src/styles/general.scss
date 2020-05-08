@@ -20,7 +20,13 @@ html {
 }
 
 .text-uppercase {
-  text-transform: uppercase;
   letter-spacing: 0.1em;
-  letter-spacing: .1em;
+}
+
+.cv-text-primary {
+  color: $primary-color !important;
+}
+
+a.cv-text-primary:hover, a.cv-text-primary:focus {
+  color: $primary-hover-color !important;
 }

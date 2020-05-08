@@ -1,15 +1,3 @@
-/*
-     Other
-    ------------------------
-*/
-.overflow-visible {
-  overflow: visible !important;
-}
-
-.shadow-0 {
-  box-shadow: none !important;
-}
-
 .text-small {
   font-size: 0.9rem !important;
 }
@@ -22,18 +10,6 @@
   .text-xl {
     font-size: 5rem !important;
   }
-}
-
-.text-gray {
-  color: #b4b4b4 !important;
-}
-
-.text-muted {
-  color: #757f88 !important;
-}
-
-.border-gray {
-  border-color: #eee !important;
 }
 
 .index-forward {
@@ -57,62 +33,8 @@
   background-position: bottom center !important;
 }
 
-.line-height-sm {
-  line-height: 1.3 !important;
-}
-
-.dotted-separator {
-  border-top: 2px dotted rgba(0, 0, 0, 0.2);
-}
-
-.font-weight-light {
-  font-weight: 300 !important;
-}
-
-.font-weight-normal {
-  font-weight: 400 !important;
-}
-
-.font-weight-bold {
-  font-weight: 800 !important;
-}
-
-.accordion .card {
-  border: none;
-}
-
-.accordion .card-header {
-  background: #fff;
-  border: none;
-}
-
-.accordion .card .btn-link {
-  width: 100%;
-  text-decoration: none;
-  color: #333;
-  text-align: left;
-}
-
-.accordion .card .btn-link:focus {
-  box-shadow: none;
-}
-
 .section-padding {
   padding: 6.5rem 0;
-}
-
-
-
-strong {
-  font-weight: bold;
-}
-
-.border-md {
-  border-width: 2px !important;
-}
-
-.border-lg {
-  border-width: 4px !important;
 }
 
 .lined {
@@ -129,7 +51,7 @@ strong {
   left: 0;
   width: 5rem;
   height: 3px;
-  background: #fbd214;
+  background: $primary-color;
 }
 
 .lined::after {
@@ -140,7 +62,7 @@ strong {
   left: 0;
   width: 3rem;
   height: 2px;
-  background: #fbd214;
+  background: $primary-color;
 }
 
 .lined-center::before {
@@ -169,14 +91,6 @@ input.text-white::-ms-input-placeholder {
 
 input.text-white::placeholder {
   color: #fff;
-}
-
-.bg-none {
-  background: none !important;
-}
-
-.text-shadow {
-  text-transform: 1px 1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .bg-cover {

@@ -1,6 +1,5 @@
-/*
-* 8. NAV
-*/
+@import '_variables.scss';
+
 .nav-link {
   padding: 0.5rem 1rem;
   font-weight: 400;
@@ -17,7 +16,7 @@
 }
 
 .nav-link.active, .nav-link:hover, .nav-link:focus {
-  color: #fbd214;
+  color: $primary-color;
 }
 
 .nav-tabs .nav-item {
@@ -55,5 +54,5 @@
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #fbd214;
+  background-color: $primary-color;
 }

@@ -15,8 +15,8 @@
 }
 
 .social-link:hover, .social-link:focus {
-  background: #fbd214;
+  background: $primary-color;
   color: #fff;
   text-decoration: none;
-  border-color: #fbd214;
+  border-color: $primary-color;
 }

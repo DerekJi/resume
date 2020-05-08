@@ -1,3 +1,5 @@
+@import '_variables.scss';
+
 
 /* Timeline holder */
 ul.timeline {
@@ -21,7 +23,7 @@ ul.timeline:before {
 
 ul.timeline:after {
   content: ' ';
-  background: #fbd214;
+  background: $primary-color;
   display: inline-block;
   position: absolute;
   bottom: 0;
@@ -40,7 +42,7 @@ li.timeline-item {
 /* Timeline item circle marker */
 li.timeline-item::before {
   content: ' ';
-  background: #fbd214;
+  background: $primary-color;
   display: inline-block;
   position: absolute;
   left: 10px;
