@@ -11,6 +11,7 @@ import { ExpertiseModule } from '@pages/expertise/expertise.module';
 import { EducationModule } from '@pages/education/education.module';
 import { ExperienceModule } from '@pages/experience/experience.module';
 import { ContactModule } from '@pages/contact/contact.module';
+import { MyProjectsModule } from '@pages/my-projects/my-projects.module';
 
 
 const AppModules = [
@@ -22,6 +23,7 @@ const AppModules = [
   ExpertiseModule,
   EducationModule,
   ExperienceModule,
+  MyProjectsModule,
   ContactModule,
   FooterModule,
 ];
