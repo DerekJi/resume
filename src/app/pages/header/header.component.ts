@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
     { section: 'expertise', displayName: 'Expertise' },
     { section: 'education', displayName: 'Education' },
     { section: 'experience', displayName: 'Experience' },
+    { section: 'projects', displayName: 'My Projects' },
     { section: 'contact', displayName: 'Contact' },
   ];
 
