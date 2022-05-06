@@ -18,10 +18,10 @@ export class HeaderComponent implements OnInit {
   public navItems = [
     { section: 'hero', displayName: 'Home' },
     { section: 'about', displayName: 'About' },
-    { section: 'expertise', displayName: 'Expertise' },
+    // { section: 'expertise', displayName: 'Expertise' },
     { section: 'education', displayName: 'Education' },
     { section: 'experience', displayName: 'Experience' },
-    { section: 'projects', displayName: 'My Projects' },
+    // { section: 'projects', displayName: 'My Projects' },
     { section: 'contact', displayName: 'Contact' },
   ];
 
