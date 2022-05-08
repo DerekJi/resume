@@ -23,7 +23,7 @@ ul.timeline:before {
 
 ul.timeline:after {
   content: ' ';
-  background: $primary-color;
+  // background: $primary-color;
   display: inline-block;
   position: absolute;
   bottom: 0;
