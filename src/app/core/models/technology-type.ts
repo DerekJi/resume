@@ -1,0 +1,12 @@
+export type TechnologyType = 'Database' | 'Language' | 'Framework' 
+    | 'Message Queue' | 'Cache'
+    | 'NoSQL'
+    | 'Development Process'
+    | 'Architecture'
+    | 'Architecture Pattern'
+    | 'Design Pattern'
+    | 'Version Control'
+    | 'Infrastructure'
+    | 'DevOps'
+    | 'Unknown'
+    ;

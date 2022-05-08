@@ -1,0 +1,1 @@
+export type MonthFormat = 'MMM' | 'MM';

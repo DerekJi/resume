@@ -1,0 +1,12 @@
+export type PositionTitle =  'Full Stack Developer'
+ | '.Net Developer'
+ | '.Net Full Stack Developer'
+ | 'Web Developer'
+ | 'Software Developer'
+ | 'Senior Software Developer'
+ | 'Senior Full Stack Developer'
+ | 'Senior Developer'
+ | 'Senior Engineer'
+ | 'Technical Sales'
+ | 'Software Engineer'
+ ;
