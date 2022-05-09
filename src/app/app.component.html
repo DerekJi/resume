@@ -1,13 +1,15 @@
-<app-header></app-header>
+<ng-container *ngIf="resume | async as cv">
+  <app-header></app-header>
 
-<div id="d-scroll-spy" *ngIf="resume | async as cv">
-  <cv-hero [cv]="cv"></cv-hero>
-  <cv-about></cv-about>
-  <!-- <cv-expertise></cv-expertise> -->
-  <cv-education [educations]="cv.educations"></cv-education>
-  <cv-experience [experiences]="cv.experiences"></cv-experience>
-  <!-- <cv-my-projects></cv-my-projects> -->
-  <cv-contact [contactMethods]="cv.contactMethods"></cv-contact>
-</div>
+  <div id="d-scroll-spy" >
+    <cv-hero [cv]="cv"></cv-hero>
+    <cv-about></cv-about>
+    <!-- <cv-expertise></cv-expertise> -->
+    <cv-education [educations]="cv.educations"></cv-education>
+    <cv-experience [experiences]="cv.experiences"></cv-experience>
+    <!-- <cv-my-projects></cv-my-projects> -->
+    <cv-contact [contactMethods]="cv.contactMethods"></cv-contact>
+  </div>
 
-<app-footer></app-footer>
+  <app-footer [cv]="cv"></app-footer>
+</ng-container>

@@ -1,15 +1,16 @@
-<footer>
+<footer *ngIf="cv">
   <div class="container text-center section-padding-y">
     <div class="row px-4">
       <div class="col-lg-7 mx-auto">
-        <h2 class="text-uppercase mb-0">Zhigang (Derek) Ji</h2>
-        <h6 class="cv-text-primary text-uppercase mb-0 letter-spacing-3">Full Stack Web Developer</h6>
-        <p class="text-muted my-4">.NET Core | Angular | React | Bootstrap</p>
+        <h2 class="text-uppercase mb-0">{{ cv.name.firstName }} ({{ cv.name.preferredName }}) {{ cv.name.lastName }}</h2>
+        <h6 class="cv-text-primary text-uppercase mb-0 letter-spacing-3">{{ cv.positionTitle}}</h6>
+        <p class="text-muted my-4">{{ cv.keywords.join(' | ') }}</p>
         <ul class="list-inline mb-0">
-          <li class="list-inline-item"><a class="social-link" href="https://www.facebook.com/zhigangji"><i class="fa fa-facebook-f"></i></a></li>
-          <li class="list-inline-item"><a class="social-link" href="https://twitter.com/zil_ji"><i class="fa fa-twitter"></i></a></li>
-          <li class="list-inline-item"><a class="social-link" href="https://www.linkedin.com/in/derek-ji-114004168/"><i class="fa fa-linkedin"></i></a></li>
-          <li class="list-inline-item"><a class="social-link" href="https://derek-ji.medium.com/"><i class="fa fa-medium"></i></a></li>
+          <li class="list-inline-item" *ngFor="let social of cv.socials">
+            <a class="social-link" href="{{ social.link }}">
+              <i class="{{ social.cssClass }}"></i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
