@@ -17,7 +17,6 @@ export class HeroComponent implements OnInit {
   }
 
   public get certs(): Array<Certificate> {
-    console.log(this.cv);
     return this.cv.certificates;
   }
 

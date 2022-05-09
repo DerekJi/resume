@@ -6,7 +6,9 @@ import { ResumeDate } from "@core/models/resumeDate";
 import { Technology } from "@core/models/technology";
 
 export class MyExperience {
-    private adelaide: City = new City('Adelaide', 'SA', 'Australia');
+    private adelaide: City = new City('Adelaide', 'South Australia', 'Australia');
+    private shenzhen: City = new City('Shenzhen', '', 'China');
+    private guangzhou: City = new City('Guangzhou', '', 'China');
 
     public get alcidion(): Experience {
         var ex = new Experience();
@@ -222,7 +224,7 @@ export class MyExperience {
         ex.company = new Organisation();
         {
             ex.company.name = 'Huawei Technologies Co, Ltd';
-            ex.company.city = this.adelaide;
+            ex.company.city = this.shenzhen;
             ex.company.officialWebsite = 'https://www.huawei.com/en';
         } 
 
@@ -244,7 +246,7 @@ export class MyExperience {
         ex.company = new Organisation();
         {
             ex.company.name = 'Nortel Networks Inc.';
-            ex.company.city = this.adelaide;
+            ex.company.city = this.guangzhou;
             ex.company.officialWebsite = 'https://en.wikipedia.org/wiki/Nortel';
         } 
 
@@ -269,8 +271,8 @@ export class MyExperience {
         ex.to = new ResumeDate(2005, 8, 'MM');
         ex.company = new Organisation();
         {
-            ex.company.name = 'Nortel Networks Inc.';
-            ex.company.city = this.adelaide;
+            ex.company.name = 'NetEase Inc.';
+            ex.company.city = this.guangzhou;
             ex.company.officialWebsite = 'http://www.netease.com/';
         } 
 

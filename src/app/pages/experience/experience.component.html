@@ -5,106 +5,29 @@
       <h2 class="text-uppercase lined">Work Experience</h2>
     </header>
     <!--  Timelines -->
-    <ul class="timeline">
+    <ul class="timeline" *ngIf="experiences">
           <!-- Timeline item-->
-          <li class="timeline-item ml-3 pb-4">
+          <li class="timeline-item ml-3 pb-4" *ngFor="let exp of experiences">
             <div class="timeline-arrow"></div>
             <div class="row no-gutter">
               <div class="col-lg-5 mb-4 mb-lg-0">
-                <p class="font-weight-bold mb-2 cv-text-primary text-small">Nov 2021 – Present </p>
-                <h2 class="h5 mb-0 text-uppercase">Alcidion <a href="https://www.alcidion.com/" target="_blank">🔗</a></h2>
-                <p class="text-small mb-0">Senior Engineer</p><span class="small text-muted">Adelaide, South Australia</span>
-                <p class="text-small mt-3">.NET 6, Postgres & SQL Server, RabbitMQ/NServiceBus, ElasticSearch, Redis, Docker/Kubernetes</p>
+                <p class="font-weight-bold mb-2 cv-text-primary text-small">{{ exp.from.toString() }} – {{ exp.to ? exp.to.toString() : 'Present'}} </p>
+                <h2 class="h5 mb-0 text-uppercase">{{ exp.company.name }} <a href="{{ exp.company.officialWebsite }}" target="_blank">🔗</a></h2>
+                <p class="text-small mb-0">{{ exp.positionTitle }}</p><span class="small text-muted">{{ exp.company.city.city }}, {{ exp.company.city.state || exp.company.city.country }}</span>
               </div>
               <div class="col-lg-7">
-                <div class="text-muted">✓ Microservices based event-driven architecture</div>
-                <div class="text-muted">✓ Test driven development process</div>
-                <div class="text-muted">✓ RabbitMQ and NServiceBus</div>
-                <div class="text-muted">✓ MS Sql Server & Postgres</div>
-                <div class="text-muted">✓ ElasticSearch</div>
-                <div class="text-muted">✓ Redis</div>
-                <div class="text-muted">✓ Containerized product environments</div>
-              </div>
-            </div>
-          </li>      
-          <!-- Timeline item-->
-          <li class="timeline-item ml-3 pb-4">
-            <div class="timeline-arrow"></div>
-            <div class="row no-gutter">
-              <div class="col-lg-5 mb-4 mb-lg-0">
-                <p class="font-weight-bold mb-2 cv-text-primary text-small">Dec 2020 – Nov 2021 </p>
-                <h2 class="h5 mb-0 text-uppercase">RAA <a href="https://raa.com.au/" target="_blank">🔗</a></h2>
-                <p class="text-small mb-0">Full Stack Developer</p><span class="small text-muted">Adelaide, South Australia</span>
-                <p class="text-small mt-3">.NET Core 3.1/.NET Framework 4.7, Angular 12, Azure</p>
-              </div>
-              <div class="col-lg-7">
-                <div class="text-muted">✓ Senior .NET design and development</div>
-                <div class="text-muted">✓ Senior Angular development</div>
-                <div class="text-muted">✓ PaaS-based Architectural Design</div>
-                <div class="text-muted">✓ Azure PaaS & CI/CD DevOps</div>
-                <div class="text-muted">✓ Test Driven Development</div>
-              </div>
-            </div>
-          </li>
-          <!-- Timeline item-->
-          <li class="timeline-item ml-3 pb-4">
-            <div class="timeline-arrow"></div>
-            <div class="row no-gutter">
-              <div class="col-lg-5 mb-4 mb-lg-0">
-                <p class="font-weight-bold mb-2 cv-text-primary text-small">June 2019 – Dec 2020 </p>
-                <h2 class="h5 mb-0 text-uppercase">Department for Infrastructure and Transport, SA <a href="https://dit.sa.gov.au/" target="_blank">🔗</a></h2>
-                <p class="text-small mb-0">Senior Web Developer</p><span class="small text-muted">Adelaide, South Australia</span>
-                <p class="text-small mt-3">.NET Core 2.1/3.1, Postgres, Angular 8/9, AWS S3, AWS Lambda</p>
-              </div>
-              <div class="col-lg-7">
-                <div class="text-muted">Develop and support web applications with Angular 8+ and .NET Core. It was pretty much a success so the contract got extended again and again for several other projects.</div>
-              </div>
-            </div>
-          </li>
-          <!-- Timeline item-->
-          <li class="timeline-item ml-3 pb-4">
-            <div class="timeline-arrow"></div>
-            <div class="row no-gutter">
-              <div class="col-lg-5 mb-4 mb-lg-0">
-                <p class="font-weight-bold mb-2 cv-text-primary text-small">Feb 2018 - June 2019 </p>
-                <h2 class="h5 mb-0 text-uppercase">Novaworks inc. <a href="https://www.novaworks.com.au/" target="_blank">🔗</a></h2>
-                <p class="text-small mb-0">Software Developer</p><span class="small text-muted">Adelaide, South Australia</span>
-                <p class="text-small mt-3">.NET Core 2.0, MSSQL, KendoUI for React & AngularJS, SharePoint </p>
-              </div>
-              <div class="col-lg-7">
-                <div class="text-muted">
-                  Develop and support PIMS for parliaments (state & federal) in Australia, involved in the whole software life cycle as a full stack developer.
-                  <ul>
-                    <li>Build RESTful Web APIs with .NET Core 2.0 + SQL Server</li>
-                    <li>SharePoint Development</li>
-                    <li>DevOps & Azure PaaS</li>
-                    <li>Build front-end UI with React or KendoUI (for AngularJS) + Typescript + jQuery</li>
-                    <li>Scrum & Test driven development</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <!-- Timeline item-->
-          <li class="timeline-item ml-3 pb-4">
-            <div class="timeline-arrow"></div>
-            <div class="row no-gutter">
-              <div class="col-lg-5 mb-4 mb-lg-0">
-                <p class="font-weight-bold mb-2 cv-text-primary text-small">June 2017 - Feb 2018 </p>
-                <h2 class="h5 mb-0 text-uppercase">Toop & Toop Real Estate <a href="https://toop.com.au/" target="_blank">🔗</a></h2>
-                <p class="text-small mb-0">Software Developer</p><span class="small text-muted">Adelaide, South Australia</span>
-              </div>
-              <div class="col-lg-7">
-                <div class="text-muted">
-                  Build and maintain <a href="https://www.youtube.com/channel/UC0KIY8YgsJYaCR4shqtzT_A" target="_blank">VAFIX</a>, a powerful property management system, which provides services to more than 10 real estate companies across from Australia.
-                  <ul>
-                    <li>.NET MVC5 & WebAPI + SQL Server 2015</li>
-                    <li>Front-end with jQuery & ReactJS & Bootstrap</li>
-                    <li>Scrum & Test-driven development</li>
-                    <li>Integrated with popular industry systems like REX and payment methods</li>
-                    <li>Covers all aspects in the real-estate industry</li>
-                  </ul>
-                </div>
+                <ng-container *ngIf="exp.responsibilities?.length > 0">
+                  <h5 class="text-muted">Responsibilities</h5>
+                  <ng-container *ngFor="let resp of exp.responsibilities">
+                    <div class="text-muted mt-3">{{ resp.summaries }}</div>
+                    <div class="text-muted" *ngFor="let item of resp.items">✓ {{ item }}</div>
+                  </ng-container>
+                </ng-container>
+
+                <ng-container *ngIf="exp.technologies?.length > 0">
+                  <h5 class="text-muted mt-5">Technologies</h5>
+                  <div class="text-muted" *ngFor="let tech of exp.technologies">✓ {{ tech.name }}</div>
+                </ng-container>
               </div>
             </div>
           </li>

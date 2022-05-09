@@ -4,7 +4,6 @@ const monthName = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep
 const months = [ '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12' ];
 
 export class ResumeDate {
-
     constructor(
         public year: number,
 
@@ -22,12 +21,14 @@ export class ResumeDate {
          public monthFormat: MonthFormat
     ) {}
 
-    toString(): string {
+    public toString(): string {
         switch (this.monthFormat) {
             case 'MMM':
-                return '${this.monthName[this.month - 1] ${year}';
+                var month = monthName[this.month - 1];
+                return `${month} ${this.year}`;
             case 'MM':
-                return '${this.months[this.month - 1]/${year}';
+                var month = months[this.month - 1];
+                return `${month}/${this.year}`;
         }
     }
 }
