@@ -11,21 +11,21 @@ export class Certificate {
          * The issuer of the certificate
          * @example 'Microsoft', 'AWS', 'Cisco'
          */
-        issuer: string,
+        public issuer: string,
 
         /**
          * The issued date of the certificate
          */
-        issuedDate: string,
+        public issuedDate: string,
 
         /**
          * The url of certificate
          */
-        url: string,
+        public url: string,
 
         /**
          * The icon image of the certificate
          */
-        icon: Image)
+        public icon: Image)
     {};
 }

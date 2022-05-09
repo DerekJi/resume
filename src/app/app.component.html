@@ -1,7 +1,7 @@
 <app-header></app-header>
 
-<div id="d-scroll-spy">
-  <cv-hero></cv-hero>
+<div id="d-scroll-spy" *ngIf="resume | async as cv">
+  <cv-hero [cv]="cv"></cv-hero>
   <cv-about></cv-about>
   <!-- <cv-expertise></cv-expertise> -->
   <cv-education></cv-education>

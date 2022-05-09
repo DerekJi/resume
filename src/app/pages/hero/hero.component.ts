@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Certificate } from '@core/models/certificate';
+import { HumanName } from '@core/models/humanName';
+import { Resume } from '@core/models/resume';
 
 @Component({
   selector: 'cv-hero',
@@ -6,6 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent implements OnInit {
+
+  @Input() cv: Resume;
+
+  public get name(): HumanName {
+    return this.cv.name;
+  }
+
+  public get certs(): Array<Certificate> {
+    console.log(this.cv);
+    return this.cv.certificates;
+  }
 
   constructor() { }
 

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Resume } from '@core/models/resume';
+import { ResumeService } from '@core/resume.service';
 import { ScrollService } from '@core/scroll-spy.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +11,13 @@ import { ScrollService } from '@core/scroll-spy.service';
 })
 export class AppComponent {
 
+  public resume: Observable<Resume>;
+
   constructor(
-    private spyService: ScrollService
+    private spyService: ScrollService,
+    private resumeService: ResumeService,
   ) {
+    this.resume = resumeService.fetch();
   }
 
   onSectionChange(sectionId: string) {
