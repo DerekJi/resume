@@ -45,8 +45,8 @@ var my = new Resume();
     
     var edus = new MyEducations();
     my.educations = [
+        edus.masterEducation,
         edus.bachelorEducation,
-        edus.masterEducation
     ];
 
     var work = new MyExperience();

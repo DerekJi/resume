@@ -1,4 +1,4 @@
-<section class="bg-light" id="education">
+<section class="bg-light" id="education" *ngIf="educations">
   <div class="container">
     <header class="mb-5 pb-4">
       <p class="font-weight-bold text-primary text-uppercase letter-spacing-3">Always doing my best.</p>
@@ -7,34 +7,19 @@
     <!--  Timeline -->
     <ul class="timeline">
           <!-- Timeline item-->
-          <li class="timeline-item ml-3 pb-4">
+          <li class="timeline-item ml-3 pb-4" *ngFor="let edu of educations">
             <div class="timeline-arrow"></div>
             <div class="row no-gutter">
               <div class="col-lg-5 mb-4 mb-lg-0">
-                <p class="font-weight-bold mb-2 cv-text-primary text-small">2001 - 2004 </p>
-                <h4 class="h5 mb-0">Master Degree of</h4>
-                <h2 class="h5 mb-0 text-uppercase">Computer Science</h2>
-                <p class="text-small mb-0"><a href="https://english.jnu.edu.cn/about_jnu/list.htm" target="_blank">Ji'nan University</a></p><span class="small text-muted">Guangzhou, China</span>
+                <p class="font-weight-bold mb-2 cv-text-primary text-small">{{ edu.from.year }} - {{ edu.to.year }} </p>
+                <h4 class="h5 mb-0">{{ edu.degree }} Degree of</h4>
+                <h2 class="h5 mb-0 text-uppercase">{{ edu.major }}</h2>
+                <p class="text-small mb-0"><a href="{{ edu.organisation.officialWebsite }}" target="_blank">{{ edu.organisation.name }}</a></p>
+                <span class="small text-muted">{{ edu.organisation.city.city }}, {{ edu.organisation.city.country }}</span>
               </div>
               <div class="col-lg-7">
                 <p class="text-muted">
 
-                </p>
-              </div>
-            </div>
-          </li>
-          <!-- Timeline item-->
-          <li class="timeline-item ml-3 pb-4">
-            <div class="timeline-arrow"></div>
-            <div class="row no-gutter">
-              <div class="col-lg-5 mb-4 mb-lg-0">
-                <p class="font-weight-bold mb-2 cv-text-primary text-small">1996 - 2000 </p>
-                <h4 class="h5 mb-0">Bachelor Degree of</h4>
-                <h2 class="h5 mb-0 text-uppercase">Mining Engineering</h2>
-                <p class="text-small mb-0"><a href="http://english.neu.edu.cn/3544/list.htm" target="_blank">Northeastern University</a></p><span class="small text-muted">Shenyang, China</span>
-              </div>
-              <div class="col-lg-7">
-                <p class="text-muted">
                 </p>
               </div>
             </div>

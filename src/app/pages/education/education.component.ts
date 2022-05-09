@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Education } from '@core/models/education';
 
 @Component({
   selector: 'cv-education',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./education.component.scss']
 })
 export class EducationComponent implements OnInit {
+
+  @Input() educations: Array<Education>;
 
   constructor() { }
 
