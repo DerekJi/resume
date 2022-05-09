@@ -2,12 +2,13 @@ import { Icon } from "./icon";
 
 export class ContactMethod {
     constructor(
-        name: string,
-        icon: Icon,
+        public name: string,
+        public icon: Icon,
         /**
          * @example Phone, Email, Twitter, Linkedin
          */
-        type: string,
-        value: string
-    ) {}
+        public type: string,
+        public value: string
+    ) {
+    }
 }

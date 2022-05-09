@@ -1,36 +1,26 @@
-<section class="bg-light" id="contact">
+<section class="bg-light" id="contact" *ngIf="contactMethods?.length > 0">
   <div class="container">
     <header class="mb-5 pb-4">
       <p class="font-weight-bold text-primary text-uppercase letter-spacing-3">Call me, maybe.</p>
       <h2 class="text-uppercase lined">Contact</h2>
     </header>
     <div class="row">
-      <!-- <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-        <div class="px-4 py-5 text-center contact-item shadow-sm"><i class="fa fa-map-marker fa-2x mb-4"></i>
-          <h4 class="contact-item-title h5 text-uppercase">Location</h4>
-          <p class="text-small mb-0">Adelaide, South Australia</p>
-        </div>
-      </div> -->
-      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-        <div class="px-4 py-5 text-center contact-item shadow-sm"><em class="fa fa-mobile fa-2x mb-4"></em>
-          <h4 class="contact-item-title h5 text-uppercase">Phone</h4>
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" *ngFor="let contact of contactMethods">
+        <div class="px-4 py-5 text-center contact-item shadow-sm" *ngIf="contact.type === 'Phone'; else linkTemplate">
+          <em class="{{ contact.icon.cssClass }} fa-2x mb-4"></em>
+          <h4 class="contact-item-title h5 text-uppercase">{{ contact.type }}</h4>
           <p class="text-small mb-0">
-            {{ phone }}
+            {{ contact.name }}
           </p>
-
         </div>
+
+        <ng-template #linkTemplate>
+          <a class="px-4 py-5 text-center contact-item shadow-sm d-block reset-anchor" href="{{ contact.url }}" target="_blank">
+            <em class="fa fa-globe fa-2x mb-4"></em>
+            <h4 class="contact-item-title h5 text-uppercase">{{ contact.type }}</h4>
+            <p class="text-small mb-0">{{ contact.name }}</p></a>
+        </ng-template>
       </div>
-      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0"><a class="px-4 py-5 text-center contact-item shadow-sm d-block reset-anchor" href="https://derekji.github.io" target="_blank"><em class="fa fa-globe fa-2x mb-4"></em>
-          <h4 class="contact-item-title h5 text-uppercase">Website</h4>
-          <p class="text-small mb-0">derekji.github.io</p></a></div>
-      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0"><a class="px-4 py-5 text-center contact-item shadow-sm d-block reset-anchor" href="https://derek-ji.medium.com" target="_blank"><em class="fa fa-medium fa-2x mb-4"></em>
-          <h4 class="contact-item-title h5 text-uppercase">Medium</h4>
-          <p class="text-small mb-0">derek-ji.medium.com</p></a></div>
-      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0"><a class="px-4 py-5 text-center contact-item shadow-sm d-block reset-anchor" href="mailto:{{email}}"><em class="fa fa-envelope fa-2x mb-4"></em>
-          <h4 class="contact-item-title h5 text-uppercase">Email</h4>
-          <p class="text-small mb-0">
-            {{ email }}
-          </p></a></div>
     </div>
   </div>
 </section>

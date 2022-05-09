@@ -1,7 +1,8 @@
 export class Icon {
-    constructor(name: string,
-        cssClass: string,
-        content: string,
-        link: string = ''
+    constructor(
+        public name: string,
+        public cssClass: string,
+        public content: string,
+        public link: string = ''
         ) {}
 }
