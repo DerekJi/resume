@@ -1,7 +1,7 @@
 import { Certificate } from "@core/models/certificate";
 import { ContactMethod } from "./contact-method";
 import { Education } from "./education";
-import { Experience } from "./Experience";
+import { Experience } from "./experience";
 import { HumanName } from "./humanName";
 import { PositionTitle } from "./positionTitle.type";
 import { Icon } from "./icon";

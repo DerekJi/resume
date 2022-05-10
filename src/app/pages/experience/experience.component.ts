@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Experience } from '@core/models/Experience';
+import { Experience } from '@core/models/experience';
 
 @Component({
   selector: 'cv-experience',

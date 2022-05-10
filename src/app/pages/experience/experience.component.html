@@ -13,7 +13,8 @@
               <div class="col-lg-5 mb-4 mb-lg-0">
                 <p class="font-weight-bold mb-2 cv-text-primary text-small">{{ exp.from.toString() }} – {{ exp.to ? exp.to.toString() : 'Present'}} </p>
                 <h2 class="h5 mb-0 text-uppercase">{{ exp.company.name }} <a href="{{ exp.company.officialWebsite }}" target="_blank">🔗</a></h2>
-                <p class="text-small mb-0">{{ exp.positionTitle }}</p><span class="small text-muted">{{ exp.company.city.city }}, {{ exp.company.city.state || exp.company.city.country }}</span>
+                <p class="text-small mb-0">{{ exp.position }}</p>
+                <span class="small text-muted">{{ exp.company.city.city }}, {{ exp.company.city.state || exp.company.city.country }}</span>
               </div>
               <div class="col-lg-7">
                 <ng-container *ngIf="exp.responsibilities?.length > 0">
