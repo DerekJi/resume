@@ -7,13 +7,44 @@ import { Technology } from "@core/models/technology";
 
 export class MyExperience {
     private adelaide: City = new City('Adelaide', 'South Australia', 'Australia');
+    private sydney: City = new City('Sydney', 'New South Wales', 'Australia');
     private shenzhen: City = new City('Shenzhen', '', 'China');
     private guangzhou: City = new City('Guangzhou', '', 'China');
+
+    public get boardroom(): Experience {
+        var ex = new Experience();
+        ex.position = 'Senior Full Stack Developer';
+        ex.from = new ResumeDate(2022, 5, 'MM');
+        ex.company = new Organisation();
+        {
+            ex.company.name = 'Boardroom Limited';
+            ex.company.city = this.sydney;
+            ex.company.officialWebsite = 'https://www.boardroomlimited.com/';
+        } 
+
+        // Responsibilities
+        {
+            var main = new Responsibility();
+            main.summaries = 'Build new features for payroll and shares management. Maintain and upgrade existing services.';
+            main.items = [
+            ];
+        }        
+        ex.responsibilities = [ main ];
+
+        ex.technologies = [
+            new Technology('Angular 13+'),
+            new Technology('.NET Core & .Net Framework'),
+            new Technology('Test-driven development'),
+            new Technology('Oracle & PL/SQL'),
+        ];
+        return ex;
+    }
 
     public get alcidion(): Experience {
         var ex = new Experience();
         ex.position = 'Senior Developer';
         ex.from = new ResumeDate(2021, 11, 'MM');
+        ex.to = new ResumeDate(2022, 5, 'MM');
         ex.company = new Organisation();
         {
             ex.company.name = 'Alcidion';

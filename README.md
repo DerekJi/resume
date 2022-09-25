@@ -1,11 +1,30 @@
 # My Resume 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Deployment
+https://derekji.github.io/
 
-Here shares my experience on how to quickly scaffolding a new project: [Quickly Scaffold Angular Projects With Bootstrap & Popular Best Practices](https://medium.com/@derek_ji/quickly-scaffold-angular-projects-with-bootstrap-popular-best-practices-645fe08e81b8)
+## How to add new experience
+* Edit the file [my-experience.ts](src\app\core\resume\my-experience.ts)
+* Add a new getter method like 
+```typescript
+public get companyName(): Experience {
+  var ex = new Experience();
+  // build referring to others
+  return ex;
+}
+```
+* Edit the file [my-resume.ts](src\app\core\resume\my-resume.ts)
+* Add the new experience method into `my.experiences`
+```typescript
+var work = new MyExperience();
+my.experiences = [
+  work.companyName,
+  // other existing experience
+];
+```

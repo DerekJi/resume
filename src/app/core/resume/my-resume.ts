@@ -51,6 +51,7 @@ var my = new Resume();
 
     var work = new MyExperience();
     my.experiences = [
+        work.boardroom,
         work.alcidion,
         work.raa,
         work.dpti,

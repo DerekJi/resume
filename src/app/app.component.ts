@@ -11,13 +11,13 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
 
-  public resume: Observable<Resume>;
+  public resume$: Observable<Resume>;
 
   constructor(
     private spyService: ScrollService,
     private resumeService: ResumeService,
   ) {
-    this.resume = resumeService.fetch();
+    this.resume$ = resumeService.fetch();
   }
 
   onSectionChange(sectionId: string) {
