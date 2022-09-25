@@ -1,5 +1,7 @@
 # My Resume 
 
+[![DevOps](https://github.com/DerekJi/resume/actions/workflows/ci.yml/badge.svg)](https://github.com/DerekJi/resume/actions/workflows/ci.yml)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
 ## Development server
