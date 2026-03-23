@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from '@core/core.module';
+import { SharedModule } from './shared/shared.module';
 import { HeaderModule } from '@pages/header/header.module';
 import { FooterModule } from '@pages/footer/footer.module';
 import { HeroModule } from '@pages/hero/hero.module';
@@ -16,6 +17,7 @@ import { MyProjectsModule } from '@pages/my-projects/my-projects.module';
 
 const AppModules = [
   CoreModule,
+  SharedModule,
 
   HeaderModule,
   HeroModule,

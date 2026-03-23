@@ -1,17 +1,20 @@
-<section class="hero bg-cover bg-center mt-5" id="hero" style="background: url(assets/images/bg-developing.jpg)">
-  <div class="container py-5 my-5 index-forward">
+<section id="hero">
+  <div class="container py-5 my-5 hero-content">
     <div class="row">
-      <div class="col-md-8 text-white" *ngIf="name">
-        <h2 class="h4 text-primary font-weight-normal mb-0">Hi, I am</h2>
-        <h1 class="text-uppercase text-xl mb-0">{{ name.firstName }} <span class="cv-text-primary">{{ name.lastName }}</span></h1>
-        <!-- <h1 class="text-md mb-0">(Derek)</h1> -->
-        <h2 class="text-uppercase h4 font-weight-normal">{{ cv.positionTitle }}</h2>
-        <div class="font-weight-normal mb-5 text-light"><i>{{ cv.keywords.join(' | ')}}</i></div>
-        <ul class="text-shadow">
+      <div class="col-md-9" *ngIf="name">
+        <p class="hero-greeting">Hi, I am</p>
+        <h1 class="hero-name text-uppercase">
+          {{ name.firstName }}&nbsp;<span class="cv-text-primary">{{ name.lastName }}</span>
+        </h1>
+        <h2 class="hero-title text-uppercase">{{ cv.positionTitle }}</h2>
+        <p class="hero-keywords"><i>{{ cv.keywords.join(' &nbsp;·&nbsp; ')}}</i></p>
+        <ul class="hero-list">
           <li *ngFor="let sum of cv.summaries">{{ sum }}</li>
           <li *ngFor="let cert of certs">
-            <a class="text-white" href="{{ cert.url }}" target="_blank">
-              <b>{{ cert.name }}</b> - <i>Certified {{ cert.issuedDate }}</i>
+            <a class="cert-link" href="{{ cert.url }}" target="_blank">
+              <span class="cert-icon">✦</span>
+              <b>{{ cert.name }}</b>
+              <span class="cert-date"> — {{ cert.issuedDate }}</span>
             </a>
           </li>
         </ul>

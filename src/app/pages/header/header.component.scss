@@ -3,25 +3,28 @@
 
 .navbar {
   transition: all 0.3s;
-  padding-top: 1.5rem !important;
-  padding-bottom: 1.5rem !important;
-  background: #fff;
+  padding-top: 1.2rem !important;
+  padding-bottom: 1.2rem !important;
+  background: rgba(7, 12, 28, 0.72);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 200, 255, 0.1);
 }
 
 .navbar.active {
-  background: #fff;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  background: rgba(7, 12, 28, 0.95);
+  box-shadow: 0 1px 16px rgba(0, 200, 255, 0.06);
 }
 
 @media (max-width: 991.98px) {
   .navbar {
-    background: #fff;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    background: rgba(7, 12, 28, 0.97);
+    box-shadow: 0 1px 8px rgba(0, 200, 255, 0.05);
   }
 }
 
 .navbar-toggler {
-  color: #2E3349;
+  color: $primary-color;
+  border-color: rgba(0, 200, 255, 0.3);
 }
 
 .sp-logo-name {
@@ -39,4 +42,5 @@
 
 .text-geo {
   font-size: .8rem;
+  color: $text-muted-cv;
 }
