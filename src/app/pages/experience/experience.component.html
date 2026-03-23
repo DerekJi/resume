@@ -1,37 +1,38 @@
 <section id="experience">
   <div class="container">
     <header class="mb-5 pb-4">
-      <p class="font-weight-bold text-primary text-uppercase letter-spacing-3">Yes, we can!</p>
+      <p class="font-weight-bold text-uppercase letter-spacing-3 section-label">Building Things That Matter</p>
       <h2 class="text-uppercase lined">Work Experience</h2>
     </header>
-    <!--  Timelines -->
-    <ul class="timeline" *ngIf="experiences">
-          <!-- Timeline item-->
-          <li class="timeline-item ml-3 pb-4" *ngFor="let exp of experiences">
-            <div class="timeline-arrow"></div>
-            <div class="row no-gutter">
-              <div class="col-lg-5 mb-4 mb-lg-0">
-                <p class="font-weight-bold mb-2 cv-text-primary text-small">{{ exp.from.toString() }} – {{ exp.to ? exp.to.toString() : 'Present'}} </p>
-                <h2 class="h5 mb-0 text-uppercase">{{ exp.company.name }} <a href="{{ exp.company.officialWebsite }}" target="_blank">🔗</a></h2>
-                <p class="text-small mb-0">{{ exp.position }}</p>
-                <span class="small text-muted">{{ exp.company.city.city }}, {{ exp.company.city.state || exp.company.city.country }}</span>
-              </div>
-              <div class="col-lg-7">
-                <ng-container *ngIf="exp.responsibilities?.length > 0">
-                  <h5 class="text-muted">Responsibilities</h5>
-                  <ng-container *ngFor="let resp of exp.responsibilities">
-                    <div class="text-muted mt-3">{{ resp.summaries }}</div>
-                    <div class="text-muted" *ngFor="let item of resp.items">✓ {{ item }}</div>
-                  </ng-container>
-                </ng-container>
 
-                <ng-container *ngIf="exp.technologies?.length > 0">
-                  <h5 class="text-muted mt-5">Technologies</h5>
-                  <div class="text-muted" *ngFor="let tech of exp.technologies">✓ {{ tech.name }}</div>
-                </ng-container>
-              </div>
-            </div>
-          </li>
-    </ul>
+    <div class="cv-timeline" *ngIf="experiences">
+      <div class="cv-tl-item" cvReveal *ngFor="let exp of experiences">
+        <div class="cv-tl-card">
+          <div class="cv-tl-period">{{ exp.from.toString() }} &ndash; {{ exp.to ? exp.to.toString() : 'Present' }}</div>
+          <h3 class="exp-company">
+            {{ exp.company.name }}
+            <a class="exp-link" href="{{ exp.company.officialWebsite }}" target="_blank">&#8599;</a>
+          </h3>
+          <div class="exp-position">{{ exp.position }}</div>
+          <div class="exp-location">
+            <i class="fa fa-map-marker mr-1"></i>
+            {{ exp.company.city.city }}, {{ exp.company.city.state || exp.company.city.country }}
+          </div>
+
+          <ng-container *ngIf="exp.responsibilities?.length > 0">
+            <ng-container *ngFor="let resp of exp.responsibilities">
+              <p class="exp-summary">{{ resp.summaries }}</p>
+              <ul class="exp-items" *ngIf="resp.items?.length > 0">
+                <li *ngFor="let item of resp.items">{{ item }}</li>
+              </ul>
+            </ng-container>
+          </ng-container>
+
+          <div class="tech-stack" *ngIf="exp.technologies?.length > 0">
+            <span class="tech-badge" *ngFor="let tech of exp.technologies">{{ tech.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

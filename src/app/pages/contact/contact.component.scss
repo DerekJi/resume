@@ -1,47 +1,70 @@
 @import '_variables.scss';
 
-.contact-item {
-  background: #fff;
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem;
+  text-decoration: none;
+  color: $text-body;
   position: relative;
-  transition: all 0.4s;
+  transition: border-color 0.25s ease, background 0.25s ease;
+
+  &:hover {
+    border-color: rgba(0, 200, 255, 0.45);
+    background: rgba(0, 200, 255, 0.05);
+    color: $text-body;
+
+    .contact-arrow { opacity: 1; }
+  }
 }
 
-.contact-item::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: calc(100% - 8px);
-  height: calc(100% - 8px);
-  background: none;
-  border: 2px solid #fff;
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  opacity: 0;
-  transition: all 0.3s;
-}
-
-.contact-item i {
+.contact-card-icon {
+  flex-shrink: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: $primary-color;
-  transition: all 0.3s;
+  font-size: 1.3rem;
 }
 
-.contact-item:hover {
-  background: $primary-color;
-  color: #fff;
+.contact-card-body {
+  flex: 1;
+  min-width: 0;
 }
 
-.contact-item:hover i, .contact-item:hover .contact-item-title, .contact-item:hover p {
-  color: #fff;
+.contact-type {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: $primary-color;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
 }
 
-.contact-item:hover::before {
-  -webkit-transform: none;
-  transform: none;
-  opacity: 1;
+.contact-value {
+  font-size: 0.9rem;
+  color: $text-body;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-a.contact-item .contact-item-title, a.contact-item p {
-  transition: all 0.3s;
+.contact-arrow {
+  font-size: 1rem;
+  color: $primary-color;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  flex-shrink: 0;
 }

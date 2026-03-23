@@ -1,2 +1,16 @@
-$primary-color: #3043e7;
-$primary-hover-color: #d86304;
+// --- Primary accent (neon cyan) ---
+$primary-color:       #00c8ff;
+$primary-hover-color:  #00e5ff;
+
+// --- Dark page backgrounds ---
+$bg-page:        #070c18;
+$bg-section:     rgba(7, 12, 28, 0.52);
+$bg-section-alt: rgba(5,  9, 22, 0.60);
+
+// --- Card / glass panel ---
+$card-bg:     rgba(255, 255, 255, 0.04);
+$card-border: rgba(0, 200, 255, 0.18);
+
+// --- Text ---
+$text-body:   #ccd6f6;
+$text-muted-cv: #8892b0;

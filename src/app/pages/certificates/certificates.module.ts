@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CertificatesComponent } from './certificates.component';
 import { SharedModule } from '../../shared/shared.module';
-import { ExperienceComponent } from '../experience/experience.component';
 
 @NgModule({
-  declarations: [ExperienceComponent],
-  exports: [ExperienceComponent],
+  declarations: [CertificatesComponent],
+  exports: [CertificatesComponent],
   imports: [
     CommonModule,
     SharedModule,
   ]
 })
-export class ExperienceModule { }
+export class CertificatesModule { }

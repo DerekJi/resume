@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-lcd-number',
   templateUrl: './lcd-number.component.html',
   styleUrls: ['./lcd-number.component.scss']

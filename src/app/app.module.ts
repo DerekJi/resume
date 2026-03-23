@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from '@core/core.module';
+import { SharedModule } from './shared/shared.module';
 import { HeaderModule } from '@pages/header/header.module';
 import { FooterModule } from '@pages/footer/footer.module';
 import { HeroModule } from '@pages/hero/hero.module';
@@ -12,15 +13,18 @@ import { EducationModule } from '@pages/education/education.module';
 import { ExperienceModule } from '@pages/experience/experience.module';
 import { ContactModule } from '@pages/contact/contact.module';
 import { MyProjectsModule } from '@pages/my-projects/my-projects.module';
+import { CertificatesModule } from '@pages/certificates/certificates.module';
 
 
 const AppModules = [
   CoreModule,
+  SharedModule,
 
   HeaderModule,
   HeroModule,
   AboutModule,
   ExpertiseModule,
+  CertificatesModule,
   EducationModule,
   ExperienceModule,
   MyProjectsModule,

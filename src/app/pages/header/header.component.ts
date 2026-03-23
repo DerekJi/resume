@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ScrollService } from '@core/scroll-spy.service';
 
 @Component({
+  standalone: false,
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
@@ -16,13 +17,13 @@ export class HeaderComponent implements OnInit {
   public navActive: string;
 
   public navItems = [
-    { section: 'hero', displayName: 'Home' },
-    { section: 'about', displayName: 'About' },
-    // { section: 'expertise', displayName: 'Expertise' },
-    { section: 'education', displayName: 'Education' },
-    { section: 'experience', displayName: 'Experience' },
-    { section: 'projects', displayName: 'My Projects' },
-    { section: 'contact', displayName: 'Contact' },
+    { section: 'hero',         displayName: 'Home' },
+    { section: 'about',        displayName: 'About' },
+    { section: 'certificates', displayName: 'Certifications' },
+    { section: 'education',    displayName: 'Education' },
+    { section: 'experience',   displayName: 'Experience' },
+    { section: 'projects',     displayName: 'My Projects' },
+    { section: 'contact',      displayName: 'Contact' },
   ];
 
   ngOnInit(): void {

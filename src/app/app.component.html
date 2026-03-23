@@ -1,3 +1,4 @@
+<cv-particles-bg></cv-particles-bg>
 <ng-container *ngIf="resume$ | async as cv">
   <app-header></app-header>
 
@@ -5,9 +6,10 @@
     <cv-hero [cv]="cv"></cv-hero>
     <cv-about></cv-about>
     <!-- <cv-expertise></cv-expertise> -->
+    <cv-certificates [certificates]="cv.certificates"></cv-certificates>
     <cv-education [educations]="cv.educations"></cv-education>
     <cv-experience [experiences]="cv.experiences"></cv-experience>
-    <cv-my-projects></cv-my-projects> 
+    <cv-my-projects></cv-my-projects>
     <cv-contact [contactMethods]="cv.contactMethods"></cv-contact>
   </div>
 

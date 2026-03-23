@@ -1,26 +1,35 @@
 <section class="bg-light" id="contact" *ngIf="contactMethods?.length > 0">
   <div class="container">
     <header class="mb-5 pb-4">
-      <p class="font-weight-bold text-primary text-uppercase letter-spacing-3">Call me, maybe.</p>
+      <p class="font-weight-bold text-uppercase letter-spacing-3 section-label">Get in touch.</p>
       <h2 class="text-uppercase lined">Contact</h2>
     </header>
-    <div class="row">
-      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" *ngFor="let contact of contactMethods">
-        <div class="px-4 py-5 text-center contact-item shadow-sm" *ngIf="contact.type === 'Phone'; else linkTemplate">
-          <em class="{{ contact.icon.cssClass }} fa-2x mb-4"></em>
-          <h4 class="contact-item-title h5 text-uppercase">{{ contact.type }}</h4>
-          <p class="text-small mb-0">
-            {{ contact.name }}
-          </p>
+    <div class="contact-grid">
+      <ng-container *ngFor="let contact of contactMethods">
+
+        <div class="contact-card" *ngIf="contact.type === 'Phone'">
+          <div class="contact-card-icon">
+            <i [class]="contact.icon.cssClass"></i>
+          </div>
+          <div class="contact-card-body">
+            <div class="contact-type">{{ contact.type }}</div>
+            <div class="contact-value">{{ contact.name }}</div>
+          </div>
         </div>
 
-        <ng-template #linkTemplate>
-          <a class="px-4 py-5 text-center contact-item shadow-sm d-block reset-anchor" href="{{ contact.url }}" target="_blank">
-            <em class="fa fa-globe fa-2x mb-4"></em>
-            <h4 class="contact-item-title h5 text-uppercase">{{ contact.type }}</h4>
-            <p class="text-small mb-0">{{ contact.name }}</p></a>
-        </ng-template>
-      </div>
+        <a class="contact-card" *ngIf="contact.type !== 'Phone'"
+           href="{{ contact.value }}" target="_blank" rel="noopener noreferrer">
+          <div class="contact-card-icon">
+            <i [class]="contact.icon.cssClass"></i>
+          </div>
+          <div class="contact-card-body">
+            <div class="contact-type">{{ contact.type }}</div>
+            <div class="contact-value">{{ contact.name }}</div>
+          </div>
+          <span class="contact-arrow">&#8599;</span>
+        </a>
+
+      </ng-container>
     </div>
   </div>
 </section>

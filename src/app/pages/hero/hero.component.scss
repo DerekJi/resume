@@ -1,18 +1,64 @@
-@import 'bt-type.scss';
+@import '_variables.scss';
+@import 'other.scss';
 
-.hero::before {
-  content: '';
-  width: 40%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(46, 51, 73, 0.75);
+section#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-@media (max-width: 991.98px) {
-  .hero::before {
-    background: rgba(46, 51, 73, 0.5);
-    width: 100%;
+.hero-content {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-greeting {
+  font-size: 1rem;
+  color: $primary-color;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.hero-name {
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: $text-body;
+  margin-bottom: 0.35rem;
+}
+
+.hero-title {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  color: $text-muted-cv;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.6rem;
+}
+
+.hero-keywords {
+  color: $text-muted-cv;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    color: $text-body;
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:last-child { border-bottom: none; }
   }
 }
+
+

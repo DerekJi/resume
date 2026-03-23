@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ContactMethod } from '@core/models/contact-method';
 
 @Component({
+  standalone: false,
   selector: 'cv-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
