@@ -10,11 +10,60 @@ export class MyExperience {
     private sydney: City = new City('Sydney', 'New South Wales', 'Australia');
     private shenzhen: City = new City('Shenzhen', '', 'China');
     private guangzhou: City = new City('Guangzhou', '', 'China');
+    private sippyDowns: City = new City('Sippy Downs', 'Queensland', 'Australia');
+
+    public get youi(): Experience {
+        var ex = new Experience();
+        ex.position = 'Senior Engineer';
+        ex.from = new ResumeDate(2023, 1, 'MM');
+        ex.company = new Organisation();
+        {
+            ex.company.name = 'Youi Insurance';
+            ex.company.city = this.sippyDowns;
+            ex.company.officialWebsite = 'https://www.youi.com.au/';
+        }
+
+        // Responsibilities
+        {
+            var ap = new Responsibility();
+            ap.summaries = 'Advisor Portal Modernisation (2023) — migrated the legacy broker-facing insurance platform to the new ScreenDriver + Angular architecture:';
+            ap.items = [
+                'Rebuilt SBI (Small Business Insurance) and Vehicle (VEH) quoting & checkout flows using the ScreenDriver BFF pattern (.NET 8 + Angular 20)',
+                'Integrated downstream services: PolicyAdmin, PaymentGateway, Address, Consent, IVR, ABN Lookup, ActivityLogger and Lookups',
+                'Real-time broker notifications via Azure SignalR; flow state persistence with Azure Blob Storage; session caching with Redis',
+                'Adopted .NET Aspire for orchestrated local development (API + UI + Redis); feature-flag gating via LaunchDarkly',
+                'Azure AD / MSAL authentication; comprehensive unit and integration test coverage',
+            ];
+
+            var dcq = new Responsibility();
+            dcq.summaries = 'Direct Customer Quotes / DCQ (2024 – ongoing) — public-facing insurance quote & buy platform deployed to Azure external landing zone:';
+            dcq.items = [
+                'Delivered end-to-end quote flows for Vehicle and Small Business Insurance (SBI); currently extending to Motorcycle',
+                'Integrated identity verification, Summit pricing engine, payment gateway, address & vehicle data services via Refit HTTP clients',
+                'Implemented front-end observability with Elastic APM and analytics with Google Tag Manager',
+                'Enforced strict CI quality gates: TreatWarningsAsErrors, NuGet security audit, ESLint + Prettier, Playwright E2E tests',
+            ];
+        }
+        ex.responsibilities = [ ap, dcq ];
+
+        ex.technologies = [
+            new Technology('.NET 8 (C#) / ASP.NET Core — BFF / Web API'),
+            new Technology('Angular 20 / TypeScript'),
+            new Technology('ScreenDriver Flow Engine architecture'),
+            new Technology('Azure (Aspire, Redis, Blob Storage, Azure AD / MSAL, SignalR)'),
+            new Technology('LaunchDarkly feature flags'),
+            new Technology('Refit, FluentValidation, AutoMapper'),
+            new Technology('NUnit, NSubstitute, Shouldly — Jest, Playwright'),
+            new Technology('GitHub Actions CI/CD'),
+        ];
+        return ex;
+    }
 
     public get boardroom(): Experience {
         var ex = new Experience();
         ex.position = 'Senior Full Stack Developer';
         ex.from = new ResumeDate(2022, 5, 'MM');
+        ex.to = new ResumeDate(2022, 12, 'MM');
         ex.company = new Organisation();
         {
             ex.company.name = 'Boardroom Limited';

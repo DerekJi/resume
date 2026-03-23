@@ -13,7 +13,7 @@ const microsoftIcon = new Image('Microsoft', 'assets/images/microsoft-logo.png')
 var my = new Resume();
 {
     my.name =  new HumanName('Zhigang', 'Ji', 'Derek');
-    my.positionTitle = 'Full Stack Developer';
+    my.positionTitle = 'Senior Engineer';
     my.keywords = [ '.NET (C#)', 'Angular', 'Azure' ];
     my.summaries = [
         'Transforming complex business requirements into robust web applications and scalable solutions.',
@@ -51,6 +51,7 @@ var my = new Resume();
 
     var work = new MyExperience();
     my.experiences = [
+        work.youi,
         work.boardroom,
         work.alcidion,
         work.raa,

@@ -5,30 +5,32 @@
       <h2 class="text-uppercase lined">Work Experience</h2>
     </header>
 
-    <div class="exp-grid" *ngIf="experiences">
-      <div class="exp-card" cvReveal *ngFor="let exp of experiences">
-        <div class="exp-period">{{ exp.from.toString() }} &ndash; {{ exp.to ? exp.to.toString() : 'Present' }}</div>
-        <h3 class="exp-company">
-          {{ exp.company.name }}
-          <a class="exp-link" href="{{ exp.company.officialWebsite }}" target="_blank">&#8599;</a>
-        </h3>
-        <div class="exp-position">{{ exp.position }}</div>
-        <div class="exp-location">
-          <i class="fa fa-map-marker mr-1"></i>
-          {{ exp.company.city.city }}, {{ exp.company.city.state || exp.company.city.country }}
-        </div>
+    <div class="cv-timeline" *ngIf="experiences">
+      <div class="cv-tl-item" cvReveal *ngFor="let exp of experiences">
+        <div class="cv-tl-card">
+          <div class="cv-tl-period">{{ exp.from.toString() }} &ndash; {{ exp.to ? exp.to.toString() : 'Present' }}</div>
+          <h3 class="exp-company">
+            {{ exp.company.name }}
+            <a class="exp-link" href="{{ exp.company.officialWebsite }}" target="_blank">&#8599;</a>
+          </h3>
+          <div class="exp-position">{{ exp.position }}</div>
+          <div class="exp-location">
+            <i class="fa fa-map-marker mr-1"></i>
+            {{ exp.company.city.city }}, {{ exp.company.city.state || exp.company.city.country }}
+          </div>
 
-        <ng-container *ngIf="exp.responsibilities?.length > 0">
-          <ng-container *ngFor="let resp of exp.responsibilities">
-            <p class="exp-summary">{{ resp.summaries }}</p>
-            <ul class="exp-items" *ngIf="resp.items?.length > 0">
-              <li *ngFor="let item of resp.items">{{ item }}</li>
-            </ul>
+          <ng-container *ngIf="exp.responsibilities?.length > 0">
+            <ng-container *ngFor="let resp of exp.responsibilities">
+              <p class="exp-summary">{{ resp.summaries }}</p>
+              <ul class="exp-items" *ngIf="resp.items?.length > 0">
+                <li *ngFor="let item of resp.items">{{ item }}</li>
+              </ul>
+            </ng-container>
           </ng-container>
-        </ng-container>
 
-        <div class="tech-stack" *ngIf="exp.technologies?.length > 0">
-          <span class="tech-badge" *ngFor="let tech of exp.technologies">{{ tech.name }}</span>
+          <div class="tech-stack" *ngIf="exp.technologies?.length > 0">
+            <span class="tech-badge" *ngFor="let tech of exp.technologies">{{ tech.name }}</span>
+          </div>
         </div>
       </div>
     </div>
