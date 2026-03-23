@@ -1,0 +1,28 @@
+<section id="certificates" *ngIf="certificates?.length">
+  <div class="container">
+    <header class="mb-5 pb-4">
+      <p class="font-weight-bold text-uppercase letter-spacing-3 section-label">Commitment to continuous learning.</p>
+      <h2 class="text-uppercase lined">Certifications</h2>
+    </header>
+    <div class="cert-grid">
+      <a class="cert-card" cvReveal
+         *ngFor="let cert of certificates"
+         href="{{ cert.url }}"
+         target="_blank"
+         rel="noopener noreferrer">
+        <div class="cert-card-icon">
+          <img *ngIf="cert.icon" [src]="cert.icon.assetUrl" [alt]="cert.issuer" class="cert-issuer-icon" />
+          <span *ngIf="!cert.icon" class="cert-issuer-fallback">✦</span>
+        </div>
+        <div class="cert-card-body">
+          <div class="cert-name">{{ cert.name }}</div>
+          <div class="cert-meta">
+            <span class="cert-issuer">{{ cert.issuer }}</span>
+            <span class="cert-date">{{ cert.issuedDate }}</span>
+          </div>
+        </div>
+        <span class="cert-arrow">&#8599;</span>
+      </a>
+    </div>
+  </div>
+</section>

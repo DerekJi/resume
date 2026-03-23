@@ -61,21 +61,4 @@ section#hero {
   }
 }
 
-.cert-link {
-  color: $text-body;
-  text-decoration: none;
-
-  &:hover { color: $primary-color; }
-}
-
-.cert-icon {
-  color: $primary-color;
-  margin-right: 0.3rem;
-  font-size: 0.7rem;
-}
-
-.cert-date {
-  color: $text-muted-cv;
-  font-size: 0.85em;
-}
 

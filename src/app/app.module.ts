@@ -13,6 +13,7 @@ import { EducationModule } from '@pages/education/education.module';
 import { ExperienceModule } from '@pages/experience/experience.module';
 import { ContactModule } from '@pages/contact/contact.module';
 import { MyProjectsModule } from '@pages/my-projects/my-projects.module';
+import { CertificatesModule } from '@pages/certificates/certificates.module';
 
 
 const AppModules = [
@@ -23,6 +24,7 @@ const AppModules = [
   HeroModule,
   AboutModule,
   ExpertiseModule,
+  CertificatesModule,
   EducationModule,
   ExperienceModule,
   MyProjectsModule,

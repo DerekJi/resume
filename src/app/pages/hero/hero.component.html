@@ -10,13 +10,6 @@
         <p class="hero-keywords"><i>{{ cv.keywords.join(' &nbsp;·&nbsp; ')}}</i></p>
         <ul class="hero-list">
           <li *ngFor="let sum of cv.summaries">{{ sum }}</li>
-          <li *ngFor="let cert of certs">
-            <a class="cert-link" href="{{ cert.url }}" target="_blank">
-              <span class="cert-icon">✦</span>
-              <b>{{ cert.name }}</b>
-              <span class="cert-date"> — {{ cert.issuedDate }}</span>
-            </a>
-          </li>
         </ul>
       </div>
     </div>

@@ -26,21 +26,21 @@ export class MyExperience {
         // Responsibilities
         {
             var ap = new Responsibility();
-            ap.summaries = 'Advisor Portal Modernisation (2023) — migrated the legacy broker-facing insurance platform to the new ScreenDriver + Angular architecture:';
+            ap.summaries = 'Advisor Portal Modernisation (2023) — led migration of the legacy broker-facing insurance platform to the new ScreenDriver + Angular architecture:';
             ap.items = [
-                'Rebuilt SBI (Small Business Insurance) and Vehicle (VEH) quoting & checkout flows using the ScreenDriver BFF pattern (.NET 8 + Angular 20)',
-                'Integrated downstream services: PolicyAdmin, PaymentGateway, Address, Consent, IVR, ABN Lookup, ActivityLogger and Lookups',
+                'Architected and delivered SBI (Small Business Insurance) and Vehicle (VEH) quoting & checkout flows using the ScreenDriver BFF pattern (.NET 8 + Angular 20)',
+                'Designed integration layer for downstream services: PolicyAdmin, PaymentGateway, Address, Consent, IVR, ABN Lookup, ActivityLogger and Lookups',
                 'Real-time broker notifications via Azure SignalR; flow state persistence with Azure Blob Storage; session caching with Redis',
-                'Adopted .NET Aspire for orchestrated local development (API + UI + Redis); feature-flag gating via LaunchDarkly',
+                'Introduced .NET Aspire for orchestrated local development (API + UI + Redis); gated feature releases via LaunchDarkly',
                 'Azure AD / MSAL authentication; comprehensive unit and integration test coverage',
             ];
 
             var dcq = new Responsibility();
-            dcq.summaries = 'Direct Customer Quotes / DCQ (2024 – ongoing) — public-facing insurance quote & buy platform deployed to Azure external landing zone:';
+            dcq.summaries = 'Direct Customer Quotes / DCQ (2024 – ongoing) — senior engineer on public-facing insurance quote & buy platform deployed to Azure external landing zone:';
             dcq.items = [
                 'Delivered end-to-end quote flows for Vehicle and Small Business Insurance (SBI); currently extending to Motorcycle',
-                'Integrated identity verification, Summit pricing engine, payment gateway, address & vehicle data services via Refit HTTP clients',
-                'Implemented front-end observability with Elastic APM and analytics with Google Tag Manager',
+                'Designed Refit HTTP clients integrating identity verification, Summit pricing engine, payment gateway, address & vehicle data services',
+                'Established front-end observability with Elastic APM and analytics with Google Tag Manager',
                 'Enforced strict CI quality gates: TreatWarningsAsErrors, NuGet security audit, ESLint + Prettier, Playwright E2E tests',
             ];
         }
@@ -85,6 +85,7 @@ export class MyExperience {
             new Technology('.NET Core & .Net Framework'),
             new Technology('Test-driven development'),
             new Technology('Oracle & PL/SQL'),
+            new Technology('Entity Framework Core'),
         ];
         return ex;
     }
@@ -163,6 +164,7 @@ export class MyExperience {
         ex.technologies = [
             new Technology('Senior .NET design and development'),
             new Technology('Senior Angular development'),
+            new Technology('Entity Framework Core'),
             new Technology('Build pipelines for CI/CD'),
             new Technology('Azure services: App Service, Functions, Blob Storage, Queue Storage, ... etc'),
             new Technology('Test Driven Development'),
@@ -263,6 +265,7 @@ export class MyExperience {
             new Technology('.NET MVC & WebAPI'),
             new Technology('JavaScript, jQuery, React, Bootstrap'),
             new Technology('SQL Server'),
+            new Technology('Entity Framework'),
             new Technology('Azure App Service'),
         ];
         return ex;
@@ -290,6 +293,7 @@ export class MyExperience {
         ex.technologies = [
             new Technology('ASP.NET Web Forms (with DevExpress)'),
             new Technology('SQL Server'),
+            new Technology('Entity Framework'),
             new Technology('SAP'),
         ];
         return ex;

@@ -14,10 +14,10 @@ var my = new Resume();
 {
     my.name =  new HumanName('Zhigang', 'Ji', 'Derek');
     my.positionTitle = 'Senior Engineer';
-    my.keywords = [ '.NET (C#)', 'Angular', 'Azure' ];
+    my.keywords = [ '.NET / C#', 'Angular', 'AI Engineering' ];
     my.summaries = [
-        'Transforming complex business requirements into robust web applications and scalable solutions.',
-        '10+ years of hands-on commercial application development'
+        'Senior engineer with 10+ years delivering full-stack products at scale — from greenfield architecture to production operations.',
+        'AI-capable: independently built a private RAG system with dual hallucination detection, MCP server integration, and IRCoT agent orchestration.',
     ];
 
     my.certificates = [
@@ -87,12 +87,7 @@ var my = new Resume();
         ),
     ];
 
-    my.socials = [
-        new Icon('Twitter', 'fa fa-twitter', '\f099', 'https://twitter.com/zil_ji'),
-        new Icon('Facebook', 'fa fa-facebook-f', '\f09a', 'https://www.facebook.com/zhigangji'),
-        new Icon('Linedin', 'fa fa-linkedin', '\f0e1', 'https://www.linkedin.com/in/derek-ji-114004168/'),
-        new Icon('Medium', 'fa fa-medium', '\f23a', 'https://derek-ji.medium.com/'),
-    ];
+    my.socials = [];
 }
 
 function credly(badgeId: string) {
