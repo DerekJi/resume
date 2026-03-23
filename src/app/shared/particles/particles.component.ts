@@ -19,6 +19,7 @@ interface Spark {
 }
 
 @Component({
+  standalone: false,
   selector: 'cv-particles-bg',
   templateUrl: './particles.component.html',
   styleUrls: ['./particles.component.scss']
@@ -33,6 +34,7 @@ export class ParticlesBgComponent implements AfterViewInit, OnDestroy {
   private readonly count = 90;
   private readonly linkDist = 150;
   private readonly color = '0, 200, 255';
+  private readonly headColor = '255, 80, 30';
 
   // Mouse trail state
   private mouseX = -9999;
@@ -75,9 +77,11 @@ export class ParticlesBgComponent implements AfterViewInit, OnDestroy {
     for (let i = 0; i < count; i++) {
       const angle = Math.random() * Math.PI * 2;
       const speed = Math.random() * 1.2 + 0.3;
+      // Offset spawn point 12-20px away from cursor so the orange head stays visible
+      const offset = 12 + Math.random() * 8;
       this.sparks.push({
-        x: this.mouseX,
-        y: this.mouseY,
+        x: this.mouseX + Math.cos(angle) * offset,
+        y: this.mouseY + Math.sin(angle) * offset,
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
         life: 1,
@@ -165,12 +169,12 @@ export class ParticlesBgComponent implements AfterViewInit, OnDestroy {
 
       // Outer glow
       ctx.shadowBlur = 12 * s.life;
-      ctx.shadowColor = `rgba(${this.color}, ${alpha})`;
+      ctx.shadowColor = `rgba(${this.headColor}, ${alpha})`;
 
       const grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, radius * 2.5);
       grad.addColorStop(0, `rgba(255, 255, 255, ${alpha})`);
-      grad.addColorStop(0.35, `rgba(${this.color}, ${alpha * 0.8})`);
-      grad.addColorStop(1, `rgba(${this.color}, 0)`);
+      grad.addColorStop(0.35, `rgba(${this.headColor}, ${alpha * 0.8})`);
+      grad.addColorStop(1, `rgba(${this.headColor}, 0)`);
 
       ctx.beginPath();
       ctx.arc(s.x, s.y, radius * 2.5, 0, Math.PI * 2);
@@ -183,20 +187,36 @@ export class ParticlesBgComponent implements AfterViewInit, OnDestroy {
     // ── Cursor glow head ─────────────────────────────────
     if (this.mouseX > 0) {
       ctx.save();
+      // Outer halo
+      const haloGrad = ctx.createRadialGradient(
+        this.mouseX, this.mouseY, 0,
+        this.mouseX, this.mouseY, 24
+      );
+      haloGrad.addColorStop(0,   `rgba(${this.headColor}, 0.22)`);
+      haloGrad.addColorStop(0.5, `rgba(${this.headColor}, 0.10)`);
+      haloGrad.addColorStop(1,   `rgba(${this.headColor}, 0)`);
+      ctx.beginPath();
+      ctx.arc(this.mouseX, this.mouseY, 24, 0, Math.PI * 2);
+      ctx.fillStyle = haloGrad;
+      ctx.fill();
+
+      // Core glow
       const headGrad = ctx.createRadialGradient(
         this.mouseX, this.mouseY, 0,
-        this.mouseX, this.mouseY, 18
+        this.mouseX, this.mouseY, 14
       );
-      headGrad.addColorStop(0, `rgba(255, 255, 255, 0.9)`);
-      headGrad.addColorStop(0.3, `rgba(${this.color}, 0.55)`);
-      headGrad.addColorStop(1, `rgba(${this.color}, 0)`);
+      headGrad.addColorStop(0,    `rgba(255, 200, 160, 1)`);
+      headGrad.addColorStop(0.15, `rgba(${this.headColor}, 1)`);
+      headGrad.addColorStop(0.55, `rgba(${this.headColor}, 0.6)`);
+      headGrad.addColorStop(1,    `rgba(${this.headColor}, 0)`);
 
-      ctx.shadowBlur = 20;
-      ctx.shadowColor = `rgba(${this.color}, 0.7)`;
+      ctx.shadowBlur = 18;
+      ctx.shadowColor = `rgba(${this.headColor}, 0.95)`;
       ctx.beginPath();
-      ctx.arc(this.mouseX, this.mouseY, 18, 0, Math.PI * 2);
+      ctx.arc(this.mouseX, this.mouseY, 14, 0, Math.PI * 2);
       ctx.fillStyle = headGrad;
       ctx.fill();
+
       ctx.shadowBlur = 0;
       ctx.restore();
     }

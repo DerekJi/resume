@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Experience } from '@core/models/experience';
 
 @Component({
+  standalone: false,
   selector: 'cv-experience',
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss']

@@ -4,6 +4,7 @@ import { HumanName } from '@core/models/humanName';
 import { Resume } from '@core/models/resume';
 
 @Component({
+  standalone: false,
   selector: 'cv-hero',
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']

@@ -1,6 +1,6 @@
 import { Directive, ElementRef, OnInit, OnDestroy } from '@angular/core';
 
-@Directive({ selector: '[cvReveal]' })
+@Directive({ standalone: false, selector: '[cvReveal]' })
 export class RevealDirective implements OnInit, OnDestroy {
   private observer!: IntersectionObserver;
 

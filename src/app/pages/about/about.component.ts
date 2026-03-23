@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'cv-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
