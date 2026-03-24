@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 .text-small {
   font-size: 0.9rem !important;
 }
@@ -91,10 +93,6 @@ input.text-white::-ms-input-placeholder {
 
 input.text-white::placeholder {
   color: #fff;
-}
-
-.bg-cover {
-  background-size: cover !important;
 }
 
 .bg-center {

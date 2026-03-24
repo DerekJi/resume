@@ -1,6 +1,3 @@
-@import '_variables.scss';
-
-@import 'general.scss';
-@import 'letter-spacing.scss';
-
-@import 'other.scss';
+@use 'general';
+@use 'letter-spacing';
+@use 'other';

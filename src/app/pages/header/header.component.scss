@@ -1,5 +1,5 @@
-@import '_variables.scss';
-@import 'bt-nav.scss';
+@use 'variables' as *;
+@use 'bt-nav';
 
 .navbar {
   transition: all 0.3s;

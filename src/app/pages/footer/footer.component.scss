@@ -1,5 +1,4 @@
-@import '_variables.scss';
-@import 'social-link.scss';
+@use 'variables' as *;
 
 .section-padding-y {
   padding-top: 6.5rem;
