@@ -40,8 +40,13 @@ export class JobTailorComponent implements OnDestroy {
 
   get sanitizedHtml(): SafeHtml {
     if (!this.markdownOutput) return '';
-    const html = marked.parse(this.markdownOutput) as string;
+    const html = marked.parse(this.stripCodeFence(this.markdownOutput)) as string;
     return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
+
+  /** Strip outer ```markdown ... ``` or ``` ... ``` fence that LLMs sometimes emit */
+  private stripCodeFence(md: string): string {
+    return md.replace(/^```[^\n]*\n([\s\S]*?)\n?```\s*$/, '$1').trim();
   }
 
   generate(): void {
