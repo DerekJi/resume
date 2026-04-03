@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -7,6 +7,8 @@ import { environment } from '../../environments/environment';
 })
 export class TailorService {
   private readonly endpoint = `${environment.vedaApiUrl}/api/public/resume/tailor`;
+
+  constructor(private ngZone: NgZone) {}
 
   /**
    * Sends a Job Description to VedaAide and streams back a tailored Markdown resume.
@@ -25,7 +27,7 @@ export class TailorService {
         .then(async res => {
           if (!res.ok) {
             const body = await res.text().catch(() => res.statusText);
-            observer.error(new Error(`HTTP ${res.status}: ${body}`));
+            this.ngZone.run(() => observer.error(new Error(`HTTP ${res.status}: ${body}`)));
             return;
           }
 
@@ -36,16 +38,17 @@ export class TailorService {
           while (true) {
             const { done, value } = await reader.read();
             if (done) {
-              observer.complete();
+              this.ngZone.run(() => observer.complete());
               break;
             }
             accumulated += decoder.decode(value, { stream: true });
-            observer.next(accumulated);
+            const snapshot = accumulated;
+            this.ngZone.run(() => observer.next(snapshot));
           }
         })
         .catch(err => {
           if (err.name !== 'AbortError') {
-            observer.error(err);
+            this.ngZone.run(() => observer.error(err));
           }
         });
 

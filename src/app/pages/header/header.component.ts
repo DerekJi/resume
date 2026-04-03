@@ -30,8 +30,8 @@ export class HeaderComponent implements OnInit {
     window.addEventListener('scroll', this.onScroll, true);
   }
 
-  onScroll = (event): void => {
-    const scrollTop = event.srcElement.scrollingElement.scrollTop;
+  onScroll = (_event: Event): void => {
+    const scrollTop = window.scrollY ?? document.documentElement.scrollTop;
     this.navActive = scrollTop > 5 ? 'active' : '';
   }
 
