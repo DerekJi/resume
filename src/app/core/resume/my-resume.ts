@@ -17,7 +17,7 @@ var my = new Resume();
     my.keywords = [ '.NET / C#', 'Angular', 'AI & RAG Engineering' ];
     my.summaries = [
         'Senior engineer with 10+ years in enterprise .NET & cloud platforms; independently designed and built VedaAide — a production-grade AI RAG system on .NET 10 with dual hallucination detection, MCP server, and IRCoT agent orchestration.',
-        'Deep hands-on AI/ML engineering: hybrid retrieval (RRF fusion), semantic caching, LLM self-verification, RAG evaluation framework, and SSE streaming — all built from first principles on top of Semantic Kernel 1.74.',
+        'Deep hands-on AI/ML engineering: hybrid retrieval (RRF fusion), semantic caching, LLM self-verification, RAG evaluation framework, and SSE streaming — all built from first principles on top of Semantic Kernel.',
     ];
 
     my.certificates = [
