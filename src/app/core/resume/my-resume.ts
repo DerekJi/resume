@@ -13,11 +13,11 @@ const microsoftIcon = new Image('Microsoft', 'assets/images/microsoft-logo.png')
 var my = new Resume();
 {
     my.name =  new HumanName('Zhigang', 'Ji', 'Derek');
-    my.positionTitle = 'Senior Engineer';
-    my.keywords = [ '.NET / C#', 'Angular', 'AI Engineering' ];
+    my.positionTitle = 'Senior Engineer & AI Systems Developer';
+    my.keywords = [ '.NET / C#', 'Angular', 'AI & RAG Engineering' ];
     my.summaries = [
-        'Senior engineer with 10+ years delivering full-stack products at scale — from greenfield architecture to production operations.',
-        'AI-capable: independently built a private RAG system with dual hallucination detection, MCP server integration, and IRCoT agent orchestration.',
+        'Senior engineer with 10+ years in enterprise .NET & cloud platforms; independently designed and built VedaAide — a production-grade AI RAG system on .NET 10 with dual hallucination detection, MCP server, and IRCoT agent orchestration.',
+        'Deep hands-on AI/ML engineering: hybrid retrieval (RRF fusion), semantic caching, LLM self-verification, RAG evaluation framework, and SSE streaming — all built from first principles on top of Semantic Kernel 1.74.',
     ];
 
     my.certificates = [
@@ -59,9 +59,6 @@ var my = new Resume();
         work.novaworks,
         work.toop,
         work.lambdasci,
-        work.huawei,
-        work.nortel,
-        work.netease,
     ];
 
     my.contactMethods = [

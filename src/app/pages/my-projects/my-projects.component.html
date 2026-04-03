@@ -7,21 +7,24 @@
 
     <div class="row border rounded p-4 m-4">
       <div class="vw-100">
-        <h4>VedaAide.NET &mdash; Private AI Q&amp;A Platform</h4>
+        <h4>VedaAide.NET &mdash; Private Production-Grade AI Platform</h4>
         <div class="d-flex justify-content-between m-2">
           <ul>
-            <li>Enterprise-grade <strong>RAG</strong> (Retrieval-Augmented Generation) system, privately deployable on any machine via Docker Compose</li>
-            <li><strong>Dual-layer hallucination detection</strong>: embedding cosine similarity check + LLM self-verification (independent fact-check prompt)</li>
-            <li><strong>Hybrid reranking</strong>: 70 % vector similarity + 30 % keyword coverage &mdash; no extra LLM call required</li>
-            <li><strong>IRCoT agent orchestration</strong>: QueryAgent &rarr; EvalAgent pipeline with Interleaved Retrieval Chain-of-Thought strategy and full execution trace</li>
-            <li><strong>MCP server</strong> at <code>/mcp</code> &mdash; exposes <code>search_knowledge_base</code>, <code>list_documents</code>, <code>ingest_document</code> tools that integrate directly with VS Code GitHub Copilot</li>
-            <li>Three API surfaces: <strong>GraphQL</strong> (HotChocolate 15) + REST + <strong>SSE streaming</strong></li>
-            <li>Azure Blob Storage + FileSystem connectors with <strong>content-hash incremental sync</strong> (skips unchanged files)</li>
-            <li><strong>117 automated tests</strong> passing; Angular 19 Signals frontend with real-time streaming</li>
+            <li><strong>Full RAG pipeline</strong> designed from first principles: multi-stage document extraction (PdfPig &rarr; Azure Document Intelligence OCR &rarr; <code>qwen3-vl:8b</code> vision LLM fallback), sliding-window chunking (256–1024 tokens per doc type, 25 % overlap), cosine-based semantic deduplication, batch embedding with token usage tracking</li>
+            <li><strong>Hybrid retrieval</strong>: concurrent vector + keyword channels fused via Reciprocal Rank Fusion (RRF, k=60); reranking at 70 % vector + 30 % keyword; user-feedback boost store in CosmosDB</li>
+            <li><strong>Semantic cache</strong>: cosine-similarity lookup with TTL &mdash; cache hits skip full retrieval + LLM call entirely</li>
+            <li><strong>Dual-layer hallucination detection</strong>: embedding cosine similarity threshold + <code>HallucinationGuardService</code> LLM self-verification via independent fact-check prompt</li>
+            <li><strong>IRCoT agent orchestration</strong>: <code>ChatCompletionAgent</code> + <code>VedaKernelPlugin</code> registered as <code>"KnowledgeBase"</code> tool; <code>FunctionChoiceBehavior.Auto()</code>; QueryAgent &rarr; EvalAgent pipeline</li>
+            <li><strong>MCP server</strong> at <code>/mcp</code> (HTTP/SSE): <code>search_knowledge_base</code>, <code>list_documents</code>, <code>ingest_document</code> &mdash; live-integrated with VS Code GitHub Copilot</li>
+            <li><strong>RAG evaluation framework</strong>: Faithfulness (LLM judge), Answer Relevancy (cosine sim), Context Recall against golden dataset</li>
+            <li>Three API surfaces: <strong>GraphQL</strong> (HotChocolate 15) + <strong>REST</strong> + <strong>SSE streaming</strong> (<code>IAsyncEnumerable&lt;RagStreamChunk&gt;</code>)</li>
+            <li><strong>Dual backend</strong>: SQLite in-memory (local dev / CI) ↔ CosmosDB DiskANN (<code>VectorDistance()</code> SQL) &mdash; swappable via config</li>
+            <li>Azure Blob Storage + FileSystem connectors; content-hash incremental sync; knowledge governance (sharing groups, document authorisation)</li>
+            <li><strong>100+ automated tests</strong> passing; Angular 21 Signals frontend with real-time SSE streaming</li>
           </ul>
         </div>
         <div class="d-flex justify-content-between m-2">
-          <i>.NET 10 &middot; Semantic Kernel 1.73 &middot; Ollama / DeepSeek / Azure OpenAI &middot; Angular 19 &middot; GraphQL (HotChocolate 15) &middot; Docker Compose &middot; Cloudflare Tunnel</i>
+          <i>.NET 10 &middot; C# &middot; Semantic Kernel 1.74 &middot; Azure OpenAI / Ollama / DeepSeek &middot; CosmosDB DiskANN &middot; Angular 21 &middot; HotChocolate 15 (GraphQL) &middot; Docker Compose &middot; Cloudflare Tunnel</i>
           <div>
             <i class="fa fa-github-square">&nbsp;</i><a href="https://github.com/DerekJi/VedaAide.NET" target="_blank">Code</a>
           </div>

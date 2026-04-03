@@ -14,6 +14,7 @@ import { ExperienceModule } from '@pages/experience/experience.module';
 import { ContactModule } from '@pages/contact/contact.module';
 import { MyProjectsModule } from '@pages/my-projects/my-projects.module';
 import { CertificatesModule } from '@pages/certificates/certificates.module';
+import { JobTailorModule } from '@pages/job-tailor/job-tailor.module';
 
 
 const AppModules = [
@@ -27,6 +28,7 @@ const AppModules = [
   CertificatesModule,
   EducationModule,
   ExperienceModule,
+  JobTailorModule,
   MyProjectsModule,
   ContactModule,
   FooterModule,

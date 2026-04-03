@@ -7,6 +7,7 @@ export type PositionTitle =  'Full Stack Developer'
  | 'Senior Full Stack Developer'
  | 'Senior Developer'
  | 'Senior Engineer'
+ | 'Senior Engineer & AI Systems Developer'
  | 'Technical Sales'
  | 'Software Engineer'
  ;

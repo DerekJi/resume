@@ -5,56 +5,59 @@
       <h2 class="text-uppercase lined">Expertise</h2>
     </header>
     <div class="row">
-      <div class="col-md-6 mb-4">
+      <div class="col-12 mb-4">
         <div class="skill-card">
           <div class="skill-number">01</div>
-          <div class="skill-title">Backend Engineering &mdash; .NET 8 / ASP.NET Core</div>
-          <p class="skill-sub">C# &middot; .NET 8 &middot; ASP.NET Core Web API &middot; Entity Framework / LINQ</p>
-          <p class="skill-sub">&rsaquo; Designs BFF (Backend-for-Frontend) APIs with ScreenDriver flow-driven architecture.</p>
-          <p class="skill-sub">&rsaquo; Applies SOLID, DRY, and CQRS principles for long-term maintainability.</p>
-          <p class="skill-sub">&rsaquo; Refit &middot; FluentValidation &middot; AutoMapper &middot; NSubstitute &middot; Shouldly &middot; .NET Aspire</p>
+          <div class="skill-title">AI &amp; RAG Engineering</div>
+          <p class="skill-sub">Semantic Kernel 1.74 &middot; Azure OpenAI &middot; Ollama &middot; DeepSeek &middot; CosmosDB DiskANN &middot; MCP</p>
+          <p class="skill-sub">&rsaquo; <strong>Full RAG pipeline</strong> from scratch: multi-stage document extraction (PdfPig &rarr; Azure Document Intelligence OCR &rarr; vision LLM fallback), sliding-window chunking (256–1024 tokens, per-doc-type), cosine-based semantic deduplication, batch embedding.</p>
+          <p class="skill-sub">&rsaquo; <strong>Hybrid retrieval</strong>: concurrent vector + keyword channels fused via Reciprocal Rank Fusion (RRF, k=60); reranking at 70 % vector + 30 % keyword; user-feedback boost (accept → +0.2 / reject → −0.15, clamped [0.3, 2.0]).</p>
+          <p class="skill-sub">&rsaquo; <strong>Dual-layer hallucination detection</strong>: layer 1 — embedding cosine similarity threshold; layer 2 — <code>HallucinationGuardService</code> LLM self-verification via independent fact-check prompt.</p>
+          <p class="skill-sub">&rsaquo; <strong>Semantic caching</strong> with cosine-similarity lookup and TTL — cache hits bypass retrieval + LLM entirely.</p>
+          <p class="skill-sub">&rsaquo; <strong>IRCoT agent orchestration</strong>: <code>ChatCompletionAgent</code> + <code>VedaKernelPlugin</code> as <code>"KnowledgeBase"</code> tool; <code>FunctionChoiceBehavior.Auto()</code>; QueryAgent &rarr; EvalAgent pipeline.</p>
+          <p class="skill-sub">&rsaquo; <strong>MCP server</strong> at <code>/mcp</code> (HTTP/SSE, ModelContextProtocol.AspNetCore 1.1.0): <code>search_knowledge_base</code>, <code>list_documents</code>, <code>ingest_document</code> — live in VS Code GitHub Copilot.</p>
+          <p class="skill-sub">&rsaquo; <strong>RAG evaluation framework</strong>: Faithfulness (LLM judge), Answer Relevancy (cosine sim), Context Recall (max chunk sim) against golden dataset.</p>
+          <p class="skill-sub">&rsaquo; <strong>SSE streaming</strong>: <code>IAsyncEnumerable&lt;RagStreamChunk&gt;</code> yielding <code>sources</code> &rarr; token chunks &rarr; <code>done</code>; bilingual prompt with auto CJK language detection.</p>
         </div>
       </div>
       <div class="col-md-6 mb-4">
         <div class="skill-card">
           <div class="skill-number">02</div>
-          <div class="skill-title">Frontend &mdash; Angular / React</div>
-          <p class="skill-sub">TypeScript &middot; Angular 20 &middot; React &middot; Bootstrap &middot; SCSS</p>
-          <p class="skill-sub">&rsaquo; Dynamic component rendering via ScreenDriver; responsive design with accessibility focus.</p>
-          <p class="skill-sub">&rsaquo; Reactive programming with RxJS; state management with NgRx / Redux.</p>
-          <p class="skill-sub">&rsaquo; Jest unit testing; Playwright E2E test automation; Google Tag Manager analytics.</p>
+          <div class="skill-title">Backend Engineering &mdash; .NET / ASP.NET Core</div>
+          <p class="skill-sub">C# &middot; .NET 10 &middot; ASP.NET Core Web API &middot; Entity Framework Core &middot; LINQ</p>
+          <p class="skill-sub">&rsaquo; Designs BFF (Backend-for-Frontend) APIs with ScreenDriver flow-driven architecture; applies SOLID, DRY, CQRS, and Clean Architecture.</p>
+          <p class="skill-sub">&rsaquo; GraphQL (HotChocolate 15) &middot; Refit &middot; FluentValidation &middot; AutoMapper &middot; .NET Aspire &middot; keyed DI services</p>
+          <p class="skill-sub">&rsaquo; CosmosDB for NoSQL (DiskANN, <code>VectorDistance()</code> SQL) &middot; SQLite &middot; MSSQL &middot; PostgreSQL &middot; Redis</p>
         </div>
       </div>
       <div class="col-md-6 mb-4">
         <div class="skill-card">
           <div class="skill-number">03</div>
-          <div class="skill-title">Cloud &amp; Infrastructure &mdash; Azure / AWS</div>
-          <p class="skill-sub">Azure (Redis &middot; Blob Storage &middot; SignalR &middot; AD / MSAL &middot; Key Vault) &middot; AWS (S3 &middot; Lambda &middot; DynamoDB)</p>
-          <p class="skill-sub">&rsaquo; Architects and operates cloud-native, horizontally scalable services.</p>
-          <p class="skill-sub">&rsaquo; Docker &middot; Kubernetes &middot; GitHub Actions &middot; Azure DevOps &middot; Bitbucket Pipelines</p>
-          <p class="skill-sub">&rsaquo; Feature-flag-driven releases with LaunchDarkly; secrets via Azure Key Vault.</p>
+          <div class="skill-title">Frontend &mdash; Angular / TypeScript</div>
+          <p class="skill-sub">Angular 21 &middot; TypeScript &middot; RxJS &middot; SCSS &middot; Bootstrap</p>
+          <p class="skill-sub">&rsaquo; Signals API; SSE streaming client; lazy-loaded feature modules; dynamic rendering via ScreenDriver.</p>
+          <p class="skill-sub">&rsaquo; Jest unit tests &middot; Playwright E2E automation &middot; Elastic APM &middot; Google Tag Manager analytics</p>
         </div>
       </div>
       <div class="col-md-6 mb-4">
         <div class="skill-card">
           <div class="skill-number">04</div>
-          <div class="skill-title">Data, Observability &amp; Engineering Quality</div>
-          <p class="skill-sub">MSSQL &middot; PostgreSQL &middot; Oracle &middot; Redis &middot; DynamoDB &middot; ElasticSearch</p>
-          <p class="skill-sub">&rsaquo; Distributed caching strategies; complex query optimisation; full-text search.</p>
-          <p class="skill-sub">Elastic APM &middot; Structured logging &middot; Distributed tracing &middot; Google Tag Manager</p>
-          <p class="skill-sub">&rsaquo; NuGet security audits, TreatWarningsAsErrors, ESLint + Prettier, strict CI quality gates.</p>
+          <div class="skill-title">Cloud &amp; Infrastructure &mdash; Azure / AWS</div>
+          <p class="skill-sub">Azure (App Service &middot; Functions &middot; Blob &middot; SignalR &middot; Azure AD/MSAL &middot; Key Vault &middot; Document Intelligence &middot; CosmosDB) &middot; AWS (S3 &middot; Lambda &middot; DynamoDB)</p>
+          <p class="skill-sub">&rsaquo; Cloud-native, horizontally scalable services; Docker Compose; Kubernetes; Cloudflare Tunnel.</p>
+          <p class="skill-sub">&rsaquo; GitHub Actions &middot; Azure DevOps &middot; Feature flags with LaunchDarkly &middot; Secrets via Key Vault</p>
         </div>
       </div>
-      <div class="col-12 mb-4">
+      <div class="col-md-6 mb-4">
         <div class="skill-card">
           <div class="skill-number">05</div>
-          <div class="skill-title">AI &amp; LLM Engineering</div>
-          <p class="skill-sub">Semantic Kernel 1.73 &middot; Ollama &middot; Azure OpenAI &middot; DeepSeek &middot; RAG pipeline design &middot; Vector search &amp; reranking</p>
-          <p class="skill-sub">&rsaquo; Designs end-to-end RAG pipelines: embedding generation, vector search, hybrid reranking (70 % vector + 30 % keyword), and dual-layer hallucination detection (embedding similarity + LLM self-verification).</p>
-          <p class="skill-sub">&rsaquo; Agent orchestration with IRCoT (Interleaved Retrieval Chain-of-Thought); QueryAgent &rarr; EvalAgent pipeline with full execution trace.</p>
-          <p class="skill-sub">&rsaquo; MCP server integration (VS Code GitHub Copilot tools: <code>search_knowledge_base</code>, <code>list_documents</code>, <code>ingest_document</code>); SSE streaming; prompt engineering with DB-driven system prompts.</p>
+          <div class="skill-title">Testing &amp; Engineering Quality</div>
+          <p class="skill-sub">NUnit &middot; NSubstitute &middot; Shouldly &middot; Jest &middot; Playwright &middot; TDD</p>
+          <p class="skill-sub">&rsaquo; 100+ automated tests in VedaAide; SQLite in-memory for zero-dependency integration tests.</p>
+          <p class="skill-sub">&rsaquo; TreatWarningsAsErrors &middot; NuGet security auditing &middot; ESLint + Prettier &middot; strict CI gates</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+

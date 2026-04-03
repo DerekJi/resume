@@ -26,10 +26,10 @@ export class MyExperience {
         // Responsibilities
         {
             var ap = new Responsibility();
-            ap.summaries = 'Advisor Portal Modernisation (2023) — led migration of the legacy broker-facing insurance platform to the new ScreenDriver + Angular architecture:';
+            ap.summaries = 'Advisor Portal Modernisation (2023) — led migration of legacy broker-facing insurance platform to ScreenDriver + Angular architecture:';
             ap.items = [
-                'Architected and delivered SBI (Small Business Insurance) and Vehicle (VEH) quoting & checkout flows using the ScreenDriver BFF pattern (.NET 8 + Angular 20)',
-                'Designed integration layer for downstream services: PolicyAdmin, PaymentGateway, Address, Consent, IVR, ABN Lookup, ActivityLogger and Lookups',
+                'Architected and delivered SBI (Small Business Insurance) and Vehicle (VEH) quoting & checkout flows using the ScreenDriver BFF pattern (.NET 8 + Angular 21)',
+                'Designed integration layer for downstream services: PolicyAdmin, PaymentGateway, Address, Consent, IVR, ABN Lookup, ActivityLogger, and Lookups',
                 'Real-time broker notifications via Azure SignalR; flow state persistence with Azure Blob Storage; session caching with Redis',
                 'Introduced .NET Aspire for orchestrated local development (API + UI + Redis); gated feature releases via LaunchDarkly',
                 'Azure AD / MSAL authentication; comprehensive unit and integration test coverage',
@@ -40,21 +40,21 @@ export class MyExperience {
             dcq.items = [
                 'Delivered end-to-end quote flows for Vehicle and Small Business Insurance (SBI); currently extending to Motorcycle',
                 'Designed Refit HTTP clients integrating identity verification, Summit pricing engine, payment gateway, address & vehicle data services',
-                'Established front-end observability with Elastic APM and analytics with Google Tag Manager',
-                'Enforced strict CI quality gates: TreatWarningsAsErrors, NuGet security audit, ESLint + Prettier, Playwright E2E tests',
+                'Front-end observability with Elastic APM; analytics with Google Tag Manager',
+                'Strict CI quality gates: TreatWarningsAsErrors, NuGet security audit, ESLint + Prettier, Playwright E2E tests',
             ];
         }
         ex.responsibilities = [ ap, dcq ];
 
         ex.technologies = [
             new Technology('.NET 8 (C#) / ASP.NET Core — BFF / Web API'),
-            new Technology('Angular 20 / TypeScript'),
-            new Technology('ScreenDriver Flow Engine architecture'),
-            new Technology('Azure (Aspire, Redis, Blob Storage, Azure AD / MSAL, SignalR)'),
+            new Technology('Angular 21 / TypeScript'),
+            new Technology('ScreenDriver flow-engine architecture'),
+            new Technology('Azure (Aspire, Redis, Blob Storage, SignalR, AD/MSAL, Key Vault)'),
             new Technology('LaunchDarkly feature flags'),
-            new Technology('Refit, FluentValidation, AutoMapper'),
-            new Technology('NUnit, NSubstitute, Shouldly — Jest, Playwright'),
-            new Technology('GitHub Actions CI/CD'),
+            new Technology('Refit · FluentValidation · AutoMapper'),
+            new Technology('NUnit · NSubstitute · Shouldly — Jest · Playwright E2E'),
+            new Technology('GitHub Actions CI/CD · Elastic APM · Google Tag Manager'),
         ];
         return ex;
     }
@@ -235,9 +235,9 @@ export class MyExperience {
         ex.responsibilities = [ main ];
 
         ex.technologies = [
-            new Technology('.Net Core 2.0 & KendoUI for React'),
-            new Technology('React + SCSS + Bootstrap'),
-            new Technology('CI/CD with AppVeyor & Octopus'),
+            new Technology('.NET Core 2.0 / ASP.NET Core'),
+            new Technology('React · SCSS · Bootstrap'),
+            new Technology('CI/CD with AppVeyor & Octopus Deploy'),
         ];
         return ex;
     }
@@ -263,9 +263,7 @@ export class MyExperience {
 
         ex.technologies = [
             new Technology('.NET MVC & WebAPI'),
-            new Technology('JavaScript, jQuery, React, Bootstrap'),
-            new Technology('SQL Server'),
-            new Technology('Entity Framework'),
+            new Technology('SQL Server · Entity Framework'),
             new Technology('Azure App Service'),
         ];
         return ex;
@@ -291,10 +289,8 @@ export class MyExperience {
         ex.responsibilities = [ main ];
 
         ex.technologies = [
-            new Technology('ASP.NET Web Forms (with DevExpress)'),
-            new Technology('SQL Server'),
-            new Technology('Entity Framework'),
-            new Technology('SAP'),
+            new Technology('ASP.NET Web Forms'),
+            new Technology('SQL Server · Entity Framework'),
         ];
         return ex;
     }

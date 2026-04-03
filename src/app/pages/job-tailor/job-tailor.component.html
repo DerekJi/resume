@@ -1,0 +1,93 @@
+<section id="job-tailor">
+  <div class="container">
+
+    <header class="mb-5 pb-4">
+      <p class="font-weight-bold text-uppercase letter-spacing-3 section-label">Powered by VedaAide RAG</p>
+      <h2 class="text-uppercase lined">AI-Tailored Resume</h2>
+      <p class="section-subtitle">
+        Paste a job description below — AI will instantly tailor my resume to match that role.
+      </p>
+    </header>
+
+    <!-- JD Input Panel (auto-collapses after generation) -->
+    <div class="input-wrapper">
+      <div class="panel-header">
+        <span class="panel-title">Job Description</span>
+        <div class="panel-header-right">
+          <span class="char-count" [class.over-limit]="charCount > maxChars" *ngIf="!jdCollapsed">
+            {{ charCount }} / {{ maxChars }}
+          </span>
+          <button class="btn-expand" *ngIf="jdCollapsed" (click)="jdCollapsed = false">
+            <i class="fa fa-pencil mr-1"></i>Edit
+          </button>
+        </div>
+      </div>
+
+      <div class="jd-body" [class.is-collapsed]="jdCollapsed">
+        <textarea
+          class="jd-textarea"
+          [(ngModel)]="jobDescription"
+          placeholder="Paste the job description here..."
+          [maxlength]="maxChars"
+          rows="8">
+        </textarea>
+        <div class="action-row">
+          <button class="btn-generate" (click)="generate()" [disabled]="!canSubmit">
+            <span *ngIf="!isLoading">
+              <i class="fa fa-magic mr-2"></i>Generate Tailored Resume
+            </span>
+            <span *ngIf="isLoading" class="spinner-text">
+              <i class="fa fa-circle-o-notch fa-spin mr-2"></i>Generating...
+            </span>
+          </button>
+          <button class="btn-cancel" *ngIf="isLoading" (click)="cancel()">Cancel</button>
+        </div>
+        <div class="error-message" *ngIf="errorMessage">
+          <i class="fa fa-exclamation-triangle mr-1"></i>{{ errorMessage }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Radar animation (shown while generating) -->
+    <div class="radar-stage" *ngIf="isLoading">
+      <div class="radar-wrap">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="radar-sweep"></div>
+        <div class="radar-line"></div>
+        <div class="radar-center"></div>
+        <div class="radar-crosshair h"></div>
+        <div class="radar-crosshair v"></div>
+        <div class="radar-blip blip-1"></div>
+        <div class="radar-blip blip-2"></div>
+        <div class="radar-blip blip-3"></div>
+      </div>
+      <p class="radar-label">
+        AI is tailoring your resume
+        <span class="dot-anim"><span>.</span><span>.</span><span>.</span></span>
+      </p>
+      <p class="radar-sublabel">Analyzing requirements · Matching skills · Optimizing keywords</p>
+    </div>
+
+    <!-- Output panel (only appears after generation completes) -->
+    <div class="output-wrapper" *ngIf="isDone">
+      <div class="output-header">
+        <span class="panel-title">Generated Resume</span>
+        <div class="download-buttons">
+          <button class="btn-download" (click)="downloadMd()">
+            <i class="fa fa-file-text-o mr-1"></i>Download .md
+          </button>
+          <button class="btn-download btn-pdf" (click)="downloadPdf()">
+            <i class="fa fa-file-pdf-o mr-1"></i>Download PDF
+          </button>
+        </div>
+      </div>
+      <div class="output-content">
+        <div class="resume-html" [innerHTML]="sanitizedHtml"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
