@@ -4,6 +4,11 @@ import { Subscription } from 'rxjs';
 import { marked } from 'marked';
 import { TailorService } from '@core/tailor.service';
 
+/** How many times to re-ping while waiting for the server to warm up. */
+const WARM_UP_MAX_ATTEMPTS = 12;
+/** Milliseconds between ping retries during warm-up. */
+const WARM_UP_INTERVAL_MS  = 5_000;
+
 @Component({
   standalone: false,
   selector: 'cv-job-tailor',
@@ -20,8 +25,14 @@ export class JobTailorComponent implements OnDestroy {
   isDone = false;
   jdCollapsed = false;
 
+  /** True while we are waiting for the server to wake up from a cold start. */
+  isWarming = false;
+  /** Countdown seconds shown in the warm-up banner. */
+  warmCountdown = 0;
+
   private subscription: Subscription | null = null;
   private collapseTimer: ReturnType<typeof setTimeout> | null = null;
+  private warmTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor(
     private tailorService: TailorService,
@@ -35,12 +46,13 @@ export class JobTailorComponent implements OnDestroy {
   get canSubmit(): boolean {
     return this.jobDescription.trim().length > 0
       && this.charCount <= this.maxChars
-      && !this.isLoading;
+      && !this.isLoading
+      && !this.isWarming;
   }
 
   get sanitizedHtml(): SafeHtml {
     if (!this.markdownOutput) return '';
-    const html = marked.parse(this.stripCodeFence(this.markdownOutput)) as string;
+    const html = marked.parse(this.stripCodeFence(this.markdownOutput), { async: false });
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
@@ -54,11 +66,57 @@ export class JobTailorComponent implements OnDestroy {
 
     this.markdownOutput = '';
     this.errorMessage = '';
-    this.isLoading = true;
     this.isDone = false;
     this.jdCollapsed = false;
     if (this.collapseTimer) { clearTimeout(this.collapseTimer); }
 
+    // Ping first — if the server is cold-starting, show a warm-up banner and poll.
+    this.isLoading = true;
+    this.tailorService.ping().then(ready => {
+      if (ready) {
+        this.startTailor();
+      } else {
+        this.isLoading = false;
+        this.startWarmUp();
+      }
+    });
+  }
+
+  private startWarmUp(): void {
+    this.isWarming = true;
+    let attempts = 0;
+    this.warmCountdown = Math.round(WARM_UP_INTERVAL_MS / 1000);
+
+    const tick = () => {
+      this.warmCountdown--;
+      if (this.warmCountdown > 0) {
+        this.warmTimer = setTimeout(tick, 1000);
+        return;
+      }
+
+      attempts++;
+      if (attempts >= WARM_UP_MAX_ATTEMPTS) {
+        this.isWarming = false;
+        this.errorMessage = 'Server is taking too long to respond. Please try again in a moment.';
+        return;
+      }
+
+      this.tailorService.ping().then(ready => {
+        if (ready) {
+          this.isWarming = false;
+          this.startTailor();
+        } else {
+          this.warmCountdown = Math.round(WARM_UP_INTERVAL_MS / 1000);
+          this.warmTimer = setTimeout(tick, 1000);
+        }
+      });
+    };
+
+    this.warmTimer = setTimeout(tick, 1000);
+  }
+
+  private startTailor(): void {
+    this.isLoading = true;
     this.subscription = this.tailorService.tailor(this.jobDescription).subscribe({
       next: (accumulated) => { this.markdownOutput = accumulated; },
       error: (err) => {
@@ -76,7 +134,9 @@ export class JobTailorComponent implements OnDestroy {
   cancel(): void {
     this.subscription?.unsubscribe();
     this.subscription = null;
+    if (this.warmTimer) { clearTimeout(this.warmTimer); this.warmTimer = null; }
     this.isLoading = false;
+    this.isWarming = false;
   }
 
   downloadMd(): void {
@@ -92,7 +152,7 @@ export class JobTailorComponent implements OnDestroy {
 
   downloadPdf(): void {
     if (!this.markdownOutput) return;
-    const html = marked.parse(this.markdownOutput) as string;
+    const html = marked.parse(this.markdownOutput, { async: false });
     const printWindow = window.open('', '_blank');
     if (!printWindow) return;
 
@@ -134,5 +194,6 @@ ${html}
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
     if (this.collapseTimer) { clearTimeout(this.collapseTimer); }
+    if (this.warmTimer) { clearTimeout(this.warmTimer); }
   }
 }

@@ -135,6 +135,38 @@
   border-left: 3px solid #ff6b6b;
 }
 
+// ── Warm-up banner (cold-start notice) ───────────────────────────────────────
+.warmup-banner {
+  max-width: 780px;
+  margin: 1.5rem auto 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 193, 7, 0.08);
+  border: 1px solid rgba(255, 193, 7, 0.35);
+  border-radius: 8px;
+  color: #ffc107;
+  font-size: 0.9rem;
+  animation: fadeSlideUp 0.4s ease both;
+
+  .warmup-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+
+  .warmup-text {
+    flex: 1;
+    line-height: 1.5;
+
+    strong {
+      display: block;
+      font-weight: 600;
+    }
+  }
+}
+
 // ── Output panel ──────────────────────────────────────────────────────────────
 .output-wrapper {
   margin-top: 2.5rem;

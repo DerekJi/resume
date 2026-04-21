@@ -48,6 +48,18 @@
       </div>
     </div>
 
+    <!-- Warm-up banner (shown when server is cold-starting) -->
+    <div class="warmup-banner" *ngIf="isWarming">
+      <div class="warmup-icon">
+        <i class="fa fa-power-off fa-pulse"></i>
+      </div>
+      <div class="warmup-text">
+        <strong>Server is waking up to save costs.</strong>
+        Retrying in {{ warmCountdown }}s&hellip;
+      </div>
+      <button class="btn-cancel" (click)="cancel()">Cancel</button>
+    </div>
+
     <!-- Radar animation (shown while generating) -->
     <div class="radar-stage" *ngIf="isLoading">
       <div class="radar-wrap">
