@@ -269,6 +269,31 @@ export class MyExperience {
         return ex;
     }
 
+    public get earlierRoles(): Experience {
+        var ex = new Experience();
+        ex.position = 'Senior / Full-Stack Developer (Various Roles)';
+        ex.from = new ResumeDate(2015, 9, 'MM');
+        ex.to = new ResumeDate(2019, 6, 'MM');
+        ex.company = new Organisation();
+        {
+            ex.company.name = 'Novaworks · Toop&Toop · Lambda Scientific';
+            ex.company.city = this.adelaide;
+            ex.company.officialWebsite = 'https://www.linkedin.com/in/zhigangji-114004168';
+        }
+        {
+            var main = new Responsibility();
+            main.summaries = 'Senior and full-stack .NET roles across government portals, real estate platforms, and scientific software — consistently delivering on-time under commercial constraints. Details on LinkedIn.';
+            main.items = [];
+        }
+        ex.responsibilities = [ main ];
+        ex.technologies = [
+            new Technology('.NET / ASP.NET Core'),
+            new Technology('SQL Server · Entity Framework'),
+            new Technology('Azure App Service'),
+        ];
+        return ex;
+    }
+
     public get lambdasci(): Experience {
         var ex = new Experience();
         ex.position = 'Web Developer';

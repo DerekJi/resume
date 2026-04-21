@@ -14,7 +14,7 @@
             <li><strong>Hybrid retrieval</strong>: concurrent vector + keyword channels fused via Reciprocal Rank Fusion (RRF, k=60); reranking at 70 % vector + 30 % keyword; user-feedback boost store in CosmosDB</li>
             <li><strong>Semantic cache</strong>: cosine-similarity lookup with TTL &mdash; cache hits skip full retrieval + LLM call entirely</li>
             <li><strong>Dual-layer hallucination detection</strong>: embedding cosine similarity threshold + <code>HallucinationGuardService</code> LLM self-verification via independent fact-check prompt</li>
-            <li><strong>IRCoT agent orchestration</strong>: <code>ChatCompletionAgent</code> + <code>VedaKernelPlugin</code> registered as <code>"KnowledgeBase"</code> tool; <code>FunctionChoiceBehavior.Auto()</code>; QueryAgent &rarr; EvalAgent pipeline</li>
+            <li><strong>ReAct agent orchestration</strong> (Semantic Kernel plugin): <code>VedaKernelPlugin</code> registered as <code>&quot;KnowledgeBase&quot;</code> <code>[KernelFunction]</code>; <code>ChatCompletionAgent</code> with <code>FunctionChoiceBehavior.Auto()</code> drives a Reason-Act-Observe loop; QueryAgent &rarr; EvalAgent pipeline</li>
             <li><strong>MCP server</strong> at <code>/mcp</code> (HTTP/SSE): <code>search_knowledge_base</code>, <code>list_documents</code>, <code>ingest_document</code> &mdash; live-integrated with VS Code GitHub Copilot</li>
             <li><strong>RAG evaluation framework</strong>: Faithfulness (LLM judge), Answer Relevancy (cosine sim), Context Recall against golden dataset</li>
             <li>Three API surfaces: <strong>GraphQL</strong> (HotChocolate 15) + <strong>REST</strong> + <strong>SSE streaming</strong> (<code>IAsyncEnumerable&lt;RagStreamChunk&gt;</code>)</li>

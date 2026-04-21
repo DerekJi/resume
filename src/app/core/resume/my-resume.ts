@@ -13,11 +13,11 @@ const microsoftIcon = new Image('Microsoft', 'assets/images/microsoft-logo.png')
 var my = new Resume();
 {
     my.name =  new HumanName('Zhigang', 'Ji', 'Derek');
-    my.positionTitle = 'Senior Engineer & AI Systems Developer';
-    my.keywords = [ '.NET / C#', 'Angular', 'AI & RAG Engineering' ];
+    my.positionTitle = 'Senior Software Engineer · .NET & Azure · AI / RAG Systems';
+    my.keywords = [ '.NET / C#', 'Azure', 'AI & RAG Engineering' ];
     my.summaries = [
-        'Senior engineer with 10+ years in enterprise .NET & cloud platforms; independently designed and built VedaAide — a production-grade AI RAG system on .NET 10 with dual hallucination detection, MCP server, and IRCoT agent orchestration.',
-        'Deep hands-on AI/ML engineering: hybrid retrieval (RRF fusion), semantic caching, LLM self-verification, RAG evaluation framework, and SSE streaming — all built from first principles on top of Semantic Kernel.',
+        'Senior engineer with 10+ years in enterprise .NET & cloud platforms. Currently transitioning into AI/RAG engineering: recently designed and shipped VedaAide — a production-grade RAG platform covering hybrid retrieval, semantic caching, dual hallucination defence, and a quantitative evaluation framework.',
+        'My conviction: RAG quality is an engineering problem — chunking strategy, retrieval precision, and context window management matter far more than model selection. Language-agnostic by nature; primary stack is C# / .NET 10.',
     ];
 
     my.certificates = [
@@ -56,9 +56,7 @@ var my = new Resume();
         work.alcidion,
         work.raa,
         work.dpti,
-        work.novaworks,
-        work.toop,
-        work.lambdasci,
+        work.earlierRoles,
     ];
 
     my.contactMethods = [
@@ -72,10 +70,10 @@ var my = new Resume();
             'Website',
             'https://derekji.github.io'
         ),
-        new ContactMethod('derek-ji.medium.com',
-            new Icon('Medium', 'fa fa-medium', '\f23a'),
-            'Medium',
-            'https://derek-ji.medium.com/'
+        new ContactMethod('derekji.github.io/blog',
+            new Icon('Blog', 'fa fa-rss', '\f09e'),
+            'Blog',
+            'https://derekji.github.io/blog'
         ),
         new ContactMethod('syfool@hotmail.com',
             new Icon('Email', 'fa fa-envelope', '\f0e0'),
